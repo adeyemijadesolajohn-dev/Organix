@@ -87,6 +87,7 @@ body {
     &:hover {
       background-color: var(--secondary-color);
       color: var(--primary-color);
+      transform: scale(1.23);
       transition: all 0.35s ease-in-out;
     }
   }

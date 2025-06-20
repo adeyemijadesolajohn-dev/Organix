@@ -16,7 +16,7 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 700) {
+    if (window.pageYOffset > 1200) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
