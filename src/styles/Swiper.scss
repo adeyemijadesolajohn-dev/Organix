@@ -1,0 +1,166 @@
+.swiper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+
+  .track {
+    display: flex;
+    height: 88%;
+
+    .slide {
+      height: 100%;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 13.5px;
+      padding-block: 12px;
+      text-align: center;
+      transition: all 0.35s ease-in-out;
+
+      .profilePic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        transition: all 0.35s ease-in-out;
+
+        .avatar {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .review {
+        width: 88%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.35s ease-in-out;
+
+        .reviewText {
+          font-size: 12px;
+          font-weight: 500;
+          color: #999;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .starRating {
+        margin-block: 7px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .clientName {
+        font-size: 20px;
+        font-weight: bolder;
+        color: yellowgreen;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .clientLocation {
+        font-size: 13.5px;
+        color: #999;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+
+  .swiperPagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-block: 2px;
+    transition: all 0.35s ease-in-out;
+
+    .swiperDots {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      transition: all 0.35s ease-in-out;
+
+      .swiperDot {
+        padding: 2px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 0.7px outset transparent;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.35s ease-in-out;
+
+        .dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: yellowgreen;
+          transition: all 0.35s ease-in-out;
+        }
+
+        &:hover {
+          transition: all 0.35s ease-in-out;
+
+          .dot {
+            transform: scale(1.35);
+            background-color: #f4a21e;
+            transition: all 0.35s ease-in-out;
+          }
+        }
+
+        &.active {
+          border: 0.7px outset var(--primary-color);
+          transition: all 0.35s ease-in-out;
+
+          .dot {
+            background-color: var(--primary-color);
+            width: 13.5px;
+            transition: all 0.35s ease-in-out;
+          }
+        }
+      }
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.35s ease-in-out;
+
+      .swiperButton {
+        width: 35px;
+        height: 35px;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bolder;
+        border-radius: 50%;
+        background-color: unset;
+        color: var(--primary-color);
+        border: none;
+        outline: none;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: all 0.35s ease-in-out;
+
+        &:hover {
+          background-color: #f4a21e;
+          border: 0.7px outset whitesmoke;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}

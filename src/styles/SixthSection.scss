@@ -1,0 +1,337 @@
+.sixthSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 35px 70px 20px;
+  width: 100vw;
+  height: fit-content;
+  background-color: white;
+  transition: all 0.35s ease-in-out;
+
+  .sixthSectionContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 13.5px;
+    width: 100%;
+    transition: all 0.35s ease-in-out;
+
+    .sixthSectionHeader {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 13.5px;
+      width: 100%;
+      margin-block: 20px;
+      transition: all 0.35s ease-in-out;
+
+      .sixthSectionTitle {
+        font-size: 13.5px;
+        color: yellowgreen;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .sixthSectionSubTitle {
+        font-size: 23.5px;
+        font-weight: bolder;
+        color: var(--primary-color);
+        transition: all 0.35s ease-in-out;
+      }
+
+      .sixthSectionText {
+        font-size: 13.5px;
+        width: 70%;
+        color: #999;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+
+    .sixthSectionIcons {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin-bottom: 13.5px;
+      font-size: 22px;
+      align-items: flex-start;
+      gap: 20px;
+      width: 88%;
+      transition: all 0.35s ease-in-out;
+
+      .sixthSectionIcon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 13.5px;
+        cursor: pointer;
+        transition: all 0.35s ease-in-out;
+
+        .dropdownButton {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: 100%;
+          height: 100%;
+          padding: 0px;
+          box-sizing: border-box;
+          background-color: transparent;
+          color: var(--primary-color);
+          font-size: 22px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          transition: all 0.35s ease-in-out;
+
+          &:hover {
+            color: #f4a21e;
+            transform: scale(1.35);
+            transition: all 0.35s ease-in-out;
+          }
+
+          .buttonIcon {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .cardContainer {
+      display: grid;
+      width: 88%;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 55px;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .sixthSectionPagination {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      width: 88%;
+      margin-top: 20px;
+      transition: all 0.35s ease-in-out;
+
+      .pagination {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        background-color: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.55),
+          inset 0 8px 12px rgba(0, 0, 0, 0.35),
+          inset 0 -7px 13.5px 3.5px rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(3.5px);
+        padding: 13.5px 35px;
+        border-radius: 35px;
+        transition: all 0.35s ease-in-out;
+
+        .page {
+          cursor: pointer;
+          transition: all 0.35s ease-in-out;
+          color: var(--primary-color);
+          font-size: 13.5px;
+          font-weight: bolder;
+          text-align: center;
+          user-select: none;
+          background-color: transparent;
+          border: 0.7px outset transparent;
+          height: 22px;
+          width: 22px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &.active {
+            background-color: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35),
+              inset 0 8px 12px rgba(0, 0, 0, 0.2),
+              inset 0 -7px 13.5px 3.5px rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(3.5px);
+            border: 0.7px outset white;
+            color: #f4a21e;
+            transition: all 0.35s ease-in-out;
+          }
+
+          &:hover {
+            transform: scale(1.35);
+            background-color: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35),
+              inset 0 8px 12px rgba(0, 0, 0, 0.2),
+              inset 0 -7px 13.5px 3.5px rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(3.5px);
+            border: 0.7px outset white;
+            color: #f4a21e;
+            transition: all 0.35s ease-in-out;
+          }
+
+          .paginationIcon {
+            font-size: 22px;
+            display: inline-block;
+            transition: all 0.35s ease-in-out;
+
+            .paginationIconFont {
+              transition: all 0.35s ease-in-out;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .sixthSectionFooter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 13.5px;
+      width: 100%;
+      margin-block: 55px;
+      transition: all 0.35s ease-in-out;
+
+      .sixthSectionFooterText {
+        width: 70%;
+        color: #999;
+        font-size: 12px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .sixthSectionFooterLinkText {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        color: var(--primary-color);
+        font-size: 13.5px;
+        transition: all 0.35s ease-in-out;
+
+        .sixthSectionFooterLinkPath {
+          color: yellowgreen;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          gap: 3.5px;
+          transition: all 0.35s ease-in-out;
+
+          &:hover {
+            color: #f4ad16;
+            text-decoration: underline;
+            margin-left: 7px;
+            gap: 0px;
+            transform: scale(1.1);
+            transition: all 0.35s ease-in-out;
+          }
+
+          .arrowIcon {
+            display: block;
+            font-size: 20px;
+            transition: all 0.35s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 7px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35),
+    inset 0 8px 12px rgba(0, 0, 0, 0.35),
+    inset 0 -7px 13.5px 3.5px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  backdrop-filter: blur(3.5px);
+  border: none;
+  outline: none;
+  z-index: 9999;
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.35s ease-in-out;
+
+  .dropdownSelect {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--primary-color);
+    font-size: 13.5px;
+    cursor: pointer;
+    padding: 3.5px 7px;
+    border-radius: 7px;
+    transition: all 0.35s ease-in-out;
+
+    &:hover {
+      color: #f4a21e;
+      transition: all 0.35s ease-in-out;
+
+      option {
+        color: var(--primary-color);
+        transition: all 0.35s ease-in-out;
+      }
+    }
+
+    option {
+      background-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(2px);
+      color: #f4a21e;
+      border: none;
+      outline: none;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        color: #f4a21e;
+        transform: scale(1.1);
+        background-color: var(--primary-color);
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .sixthSection {
+    padding: 35px 35px 20px;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sixthSection {
+    .sixthSectionContent {
+      .sixthSectionPagination {
+        justify-content: center;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sixthSection {
+    .sixthSectionContent {
+      .sixthSectionPagination {
+        padding: 0 70px;
+        transition: all 0.35s ease-in-out;
+
+        .pagination {
+          gap: 7px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}

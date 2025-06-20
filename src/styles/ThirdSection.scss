@@ -1,0 +1,147 @@
+.thirdSection {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  padding-block: 70px;
+  transition: all 0.35s ease-in-out;
+
+  .thirdSectionTitle {
+    font-size: 13.5px;
+    color: yellowgreen;
+    margin-bottom: 20px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .thirdSectionSubTitle {
+    font-size: 22px;
+    font-weight: bolder;
+    color: var(--primary-color);
+    transition: all 0.35s ease-in-out;
+  }
+
+  .thirdSectionMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: all 0.35s ease-in-out;
+
+    button {
+      border: none;
+      background-color: unset;
+      outline: none;
+      font-size: 13.5px;
+      font-weight: bold;
+      color: var(--primary-color);
+      cursor: pointer;
+      margin-block: 35px 0px;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        color: #f4ad16;
+        transform: scale(1.1);
+        text-decoration: underline;
+        transition: all 0.35s ease-in-out;
+      }
+
+      &.active {
+        color: #f4ad16;
+        transform: scale(1.1);
+        text-decoration: underline;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+
+  .thirdSectionSlider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 80px;
+    transition: all 0.35s ease-in-out;
+
+    .thirdSectionSlides {
+      max-width: 1350px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: all 0.35s ease-in-out;
+
+      .leftArrow,
+      .rightArrow {
+        height: 35px;
+        width: 35px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.35);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35),
+          inset 0 8px 12px rgba(0, 0, 0, 0.35),
+          inset 0 -7px 13.5px 3.5px rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(3.5px);
+        border-radius: 50%;
+        padding: 7px;
+        position: absolute;
+        transition: all 0.35s ease-in-out;
+        z-index: 1;
+
+        &:hover {
+          transform: scale(1.35);
+          color: #f4ad16;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .leftArrow {
+        left: -20px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .rightArrow {
+        right: 35px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .itemCard {
+        list-style: none;
+        display: grid;
+        padding: 55px 20px;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% / 5.5) - 35px);
+        gap: 70px;
+        height: 500px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        transition: all 0.35s ease-in-out;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .itemCard.dragging {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+
+        .content {
+          cursor: grab;
+          user-select: none;
+        }
+      }
+    }
+  }
+}

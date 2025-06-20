@@ -1,0 +1,150 @@
+.slickReview {
+  //   max-width: 1500px;
+  width: 100%;
+  margin-top: 35px;
+  height: 100%;
+  user-select: none;
+  position: relative;
+  transition: all 0.35s ease-in-out;
+
+  .track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .reviewSlide {
+      height: fit-content;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 7px;
+      text-align: center;
+      transition: all 0.35s ease-in-out;
+
+      .profilePic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        transition: all 0.35s ease-in-out;
+
+        .avatar {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .review {
+        width: 88%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.35s ease-in-out;
+
+        .reviewText {
+          font-size: 12px;
+          font-weight: 500;
+          color: #999;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .starRating {
+        margin-block: 7px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .clientName {
+        font-size: 20px;
+        font-weight: bolder;
+        color: yellowgreen;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .clientLocation {
+        font-size: 13.5px;
+        color: #999;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+.slick-arrow:before {
+  content: none;
+}
+
+/* Re‑usable round droplet button */
+.droplet {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  /* water‑drop texture made from layered gradients */
+  background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.65) 0 30%,
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(255, 255, 255, 0.25) 0 25%,
+      transparent 26%
+    ),
+    #3da4f7; /* base drop color */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease;
+}
+.droplet:hover {
+  transform: scale(1.08);
+}
+.droplet:active {
+  transform: scale(0.94);
+}
+
+/* Flip the previous arrow so both share one SVG or pseudo */
+.droplet.prev {
+  transform: rotate(180deg);
+}
+
+/* ---------- DOTS ---------- */
+
+.custom-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin: 0;
+}
+
+/* remove Slick’s default dot char */
+.custom-dots li button:before {
+  content: none;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #cddb3d; /* yellow‑green default */
+  transition: background 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-dots li button:hover,
+.custom-dots li button:focus-visible {
+  background: #ff8200; /* orange hover */
+}
+
+.custom-dots li.slick-active button {
+  background: #1abc54; /* green active */
+  box-shadow: 0 0 0 3px rgba(26, 188, 84, 0.4); /* halo */
+}

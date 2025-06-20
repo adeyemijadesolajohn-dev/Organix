@@ -1,0 +1,118 @@
+.secondSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background-color: white;
+  transition: all 0.35s ease-in-out;
+
+  .secondSectionContent {
+    display: flex;
+    justify-content: center;
+    gap: 13.5px;
+    transition: all 0.35s ease-in-out;
+
+    .secondSectionCard {
+      background-color: #fff;
+      border: 2px solid #e0e0e0;
+      padding: 15px;
+      border-radius: 8px;
+      width: 350px;
+      transition: all 0.35s ease-in-out;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover {
+        background-color: #f9f9f9;
+        border-color: #d0d0d0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transform: scale(1.1);
+        transition: all 0.35s ease-in-out;
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      h4 {
+        font-size: 1.2em;
+        color: var(--primary-color);
+        margin: 13.5px 0 12px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      p {
+        font-size: 0.9em;
+        color: #666;
+        margin: 0 0 22px;
+        line-height: 20px;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-width: 1177px) {
+  .secondSection {
+    transition: all 0.35s ease-in-out;
+
+    .secondSectionContent {
+      gap: 5px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 1111px) {
+  .secondSection {
+    .secondSectionContent {
+      gap: 12px;
+      padding: 0;
+      transition: all 0.35s ease-in-out;
+
+      .secondSectionCard {
+        width: 300px;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-width: 955px) {
+  .secondSection {
+    transition: all 0.35s ease-in-out;
+
+    .secondSectionContent {
+      gap: 0px;
+      transition: all 0.35s ease-in-out;
+
+      .secondSectionCard {
+        width: 250px;
+        padding: 12px;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .secondSection {
+    transition: all 0.35s ease-in-out;
+
+    .secondSectionContent {
+      flex-direction: column;
+      gap: 20px;
+      transition: all 0.35s ease-in-out;
+
+      .secondSectionCard {
+        width: 350px;
+        padding: 13.5px;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}

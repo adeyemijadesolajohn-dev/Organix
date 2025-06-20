@@ -1,0 +1,237 @@
+.wrapper {
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 35px;
+  position: relative;
+  transition: all 0.35s ease-in-out;
+
+  .thirdSectionArrow {
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35),
+      inset 0 8px 12px rgba(0, 0, 0, 0.35),
+      inset 0 -7px 13.5px 3.5px rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(3.5px);
+    border-radius: 50%;
+    padding: 7px;
+    position: absolute;
+    top: 50%;
+    transition: all 0.35s ease-in-out;
+    z-index: 1;
+
+    &:hover {
+      transform: scale(1.35);
+      color: #f4ad16;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+
+  .left {
+    left: 20px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .right {
+    right: 20px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    transition: all 0.35s ease-in-out;
+
+    .card {
+      cursor: grab;
+      user-select: none;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+
+  .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / 5);
+    gap: 0px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: all 0.35s ease-in-out;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      scroll-snap-align: start;
+      list-style: none;
+      width: 100%;
+      height: 555px;
+      padding: 55px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: lightblue;
+      border: 2px solid red;
+      transition: all 0.35s ease-in-out;
+      cursor: pointer;
+      float: left;
+
+      .content {
+        width: 100%;
+        background-color: lightgreen;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        transition: all 0.35s ease-in-out;
+
+        .status {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          padding: 3.5px 13.5px;
+          color: #fff;
+          font-size: 12px;
+          font-weight: bold;
+          border-radius: 7px 0 7px 0;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .heart {
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          padding: 12px 12px;
+          color: var(--primary-color);
+          font-size: 25px;
+          background-color: unset;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          opacity: 0.35;
+          transition: all 0.35s ease-in-out;
+
+          &:hover {
+            opacity: 0.7;
+            transform: scale(1.1);
+            transition: all 0.35s ease-in-out;
+          }
+        }
+
+        .cardImage {
+          width: 100%;
+          height: 222px;
+          border-radius: 7px;
+          z-index: -10;
+          background-color: whitesmoke;
+          transition: all 0.35s ease-in-out;
+
+          img {
+            width: 100%;
+            height: 200px;
+            padding: 35px;
+            object-fit: contain;
+            transition: all 0.35s ease-in-out;
+
+            &:hover {
+              transform: scale(1.23) rotate(21deg);
+              padding: 0;
+              transition: all 0.35s ease-in-out;
+            }
+          }
+        }
+
+        .cardContent {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          gap: 7px;
+          border: 2px solid red;
+          height: 200px;
+          padding: 20px;
+          transition: all 0.35s ease-in-out;
+
+          .cardTitle {
+            font-size: 15px;
+            font-weight: bolder;
+            color: var(--primary-color);
+            margin-block: 3.5px;
+            transition: all 0.35s ease-in-out;
+          }
+
+          .cardBottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 7px;
+            height: 100%;
+            transition: all 0.35s ease-in-out;
+
+            .cardPrice {
+              font-size: 17px;
+              font-weight: 555;
+              display: flex;
+              align-items: center;
+              gap: 7px;
+              transition: all 0.35s ease-in-out;
+
+              .original {
+                text-decoration: line-through;
+                color: #999;
+                transition: all 0.35s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    .carousel {
+      grid-auto-columns: calc(100% / 4);
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    .carousel {
+      grid-auto-columns: calc(100% / 3);
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    .carousel {
+      grid-auto-columns: calc(100% / 2);
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    .carousel {
+      grid-auto-columns: 100%;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}

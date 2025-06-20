@@ -1,0 +1,244 @@
+.fifthSection {
+  width: 100%;
+  height: 90vh;
+  background-image: url("../assets/[GetPaidStock.com]-68498a9c3d860.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.35s ease-in-out;
+  overflow: hidden;
+
+  .fifthSectionContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: all 0.35s ease-in-out;
+    padding-left: 200px;
+
+    .fifthSectionText {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 22px;
+      margin-right: -135px;
+      transition: all 0.35s ease-in-out;
+
+      .fifthSectionTextTitle {
+        font-size: 55px;
+        font-weight: 555;
+        width: 555px;
+        color: yellowgreen;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .fifthSectionTextDescription {
+        font-size: 15px;
+        width: 500px;
+        color: var(--primary-color);
+        transition: all 0.35s ease-in-out;
+      }
+
+      .fifthSectionTextButton {
+        width: 120px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        background-color: var(--primary-color);
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
+        border: 2px solid transparent;
+        font-size: 13.5px;
+        font-weight: 555;
+        cursor: pointer;
+        transition: all 0.35s ease-in-out;
+
+        &:hover {
+          border: 2px solid var(--primary-color);
+          background-color: #f4ad16;
+          color: var(--primary-color);
+          transform: scale(1.1);
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .fifthSectionImage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.35s ease-in-out;
+
+    .brushStroke {
+      width: 100%;
+      height: 100%;
+      top: 135px;
+      right: 0;
+      transform: rotate(-35deg);
+      object-fit: cover;
+      transition: all 0.35s ease-in-out;
+      position: absolute;
+    }
+
+    .pomidor {
+      width: 88%;
+      height: 88%;
+      object-fit: contain;
+      position: relative;
+      transform: translate(13.5%, 0%);
+      transform-origin: center center;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .leavesBlowing {
+      width: 55%;
+      height: 55%;
+      top: 20px;
+      left: 0;
+      object-fit: contain;
+      transition: all 0.35s ease-in-out;
+      position: absolute;
+      transform: rotate(-270deg) translate(12%, 0%);
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .fifthSection {
+    .fifthSectionContent {
+      padding-left: 120px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .fifthSection {
+    .fifthSectionContent {
+      padding-left: 50px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .fifthSection {
+    .fifthSectionContent {
+      gap: 0;
+
+      .fifthSectionText {
+        .fifthSectionTextTitle {
+          font-size: 40px;
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fifthSectionTextDescription {
+          font-size: 13.5px;
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .fifthSection {
+    margin-top: 35px;
+    padding-top: 70px;
+    height: 100vh;
+
+    .fifthSectionContent {
+      flex-direction: column;
+      padding: 0px;
+
+      .fifthSectionText {
+        margin-right: 0px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.35s ease-in-out;
+
+        .fifthSectionTextTitle {
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fifthSectionTextDescription {
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fifthSection {
+    padding-top: 35px;
+
+    .fifthSectionContent {
+      .fifthSectionText {
+        .fifthSectionTextTitle {
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fifthSectionTextDescription {
+          width: 300px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .fifthSection {
+    padding-top: 20px;
+
+    .fifthSectionContent {
+      .fifthSectionText {
+        .fifthSectionTextTitle {
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fifthSectionTextDescription {
+          width: 350px;
+          font-size: 15px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .fifthSection {
+    .fifthSectionContent {
+      .fifthSectionText {
+        .fifthSectionTextTitle {
+          width: 300px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fifthSectionTextDescription {
+          width: 300px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}

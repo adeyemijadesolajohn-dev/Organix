@@ -1,0 +1,388 @@
+.firstSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-size: 100% 100%;
+  position: relative;
+  height: 88vh;
+  width: 100%;
+  background-image: linear-gradient(
+      170deg,
+      rgba(237, 237, 237, 1) 55%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("../assets/[GetPaidStock.com]-683973c78e6f0.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+
+  .background {
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .whiteTable {
+    width: 100%;
+    height: 135px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .pictureFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 35px;
+    left: -70px;
+    width: 100%;
+    transition: all 0.35s ease-in-out;
+
+    .vegetables {
+      height: 888px;
+      margin-bottom: -35px;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .backgroundText {
+      text-align: left;
+      margin-left: -350px;
+      margin-bottom: 35px;
+      transition: all 0.35s ease-in-out;
+
+      .welcome {
+        font-size: 13.5px;
+        color: yellowgreen;
+        margin-bottom: 20px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .title {
+        font-size: 55px;
+        font-weight: 700;
+        width: 500px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .description {
+        font-size: 13.5px;
+        color: grey;
+        width: 380px;
+        margin-bottom: 20px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .shopNow {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 12px;
+        font-weight: 555;
+        border-radius: 20px;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        transition: all 0.35s ease-in-out;
+
+        &:hover {
+          background-color: #f4ad16;
+          transform: scale(1.1);
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .stamp {
+    position: absolute;
+    bottom: 300px;
+    left: 0;
+    width: 500px;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+@media (max-width: 1200px) {
+  .firstSection {
+    height: 88vh;
+    width: 100%;
+    transition: all 0.35s ease-in-out;
+
+    .whiteTable {
+      width: 100%;
+      height: 135px;
+      background-color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .pictureFlex {
+      align-items: center;
+      bottom: -70px;
+      left: 0px;
+      width: 100%;
+      transition: all 0.35s ease-in-out;
+
+      .vegetables {
+        height: 800px;
+        margin-bottom: 120px;
+        margin-left: -100px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .backgroundText {
+        text-align: left;
+        margin-left: -350px;
+        margin-top: -170px;
+        transition: all 0.35s ease-in-out;
+
+        .title {
+          font-size: 45px;
+          width: 90%;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .description {
+          width: 90%;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+    .stamp {
+      position: absolute;
+      bottom: 350px;
+      left: -70px;
+      width: 400px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 945px) {
+  .firstSection {
+    width: 100%;
+    padding: 0;
+    transition: all 0.35s ease-in-out;
+
+    .stamp {
+      position: absolute;
+      bottom: 350px;
+      left: -70px;
+      width: 400px;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .pictureFlex {
+      width: 100%;
+      left: 20px;
+      transition: all 0.35s ease-in-out;
+
+      .vegetables {
+        width: 100%;
+        object-fit: contain;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .backgroundText {
+        width: 555px;
+        padding-left: 55px;
+        transition: all 0.35s ease-in-out;
+
+        .welcome {
+          margin-bottom: 7px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .title {
+          margin-bottom: 7px;
+          font-size: 55px;
+          width: 100%;
+          font-size: 40px;
+          font-weight: 700;
+          color: var(--primary-color);
+          transition: all 0.35s ease-in-out;
+        }
+
+        .description {
+          margin-bottom: 7px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 888px) {
+  .firstSection {
+    transition: all 0.35s ease-in-out;
+
+    .whiteTable {
+      width: 100%;
+      height: 100px;
+      background-color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .pictureFlex {
+      flex-direction: column;
+      bottom: -60px;
+      left: 70px;
+      gap: 120px;
+      transition: all 0.35s ease-in-out;
+
+      .vegetables {
+        height: 700px;
+        margin-bottom: -0px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .backgroundText {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: -200px;
+        margin-bottom: 88px;
+        padding-bottom: -120px;
+        transition: all 0.35s ease-in-out;
+
+        .welcome {
+          font-size: 13.5px;
+          color: yellowgreen;
+          margin-bottom: 5.5px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .title {
+          font-size: 55px;
+          font-weight: 700;
+          width: 500px;
+          color: var(--primary-color);
+          margin-bottom: 5.5px;
+          line-height: 55px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .description {
+          font-size: 13.5px;
+          color: grey;
+          width: 380px;
+          margin-bottom: 5.5px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: 400px;
+      left: -35px;
+      width: 350px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 777px) {
+  .firstSection {
+    transition: all 0.3s ease-in-out;
+
+    .whiteTable {
+      width: 100%;
+      height: 280px;
+      background-color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: 450px;
+      left: -35px;
+      width: 300px;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .pictureFlex {
+      flex-direction: column;
+      bottom: -60px;
+      left: 70px;
+      gap: 120px;
+      transition: all 0.35s ease-in-out;
+
+      .vegetables {
+        height: 888px;
+        margin-bottom: -120px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .backgroundText {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: -200px;
+        margin-bottom: 120px;
+        transition: all 0.35s ease-in-out;
+
+        .welcome {
+          font-size: 13.5px;
+          color: yellowgreen;
+          margin-bottom: 5.5px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .title {
+          font-size: 55px;
+          font-weight: 700;
+          width: 500px;
+          color: var(--primary-color);
+          margin-bottom: 5.5px;
+          line-height: 55px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .description {
+          font-size: 13.5px;
+          color: grey;
+          width: 380px;
+          margin-bottom: 5.5px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 666px) {
+  .firstSection {
+    transition: all 0.3s ease-in-out;
+
+    .stamp {
+      position: absolute;
+      bottom: 450px;
+      left: -35px;
+      width: 250px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}

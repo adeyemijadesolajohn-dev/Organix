@@ -1,0 +1,29 @@
+.cardRating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  user-select: none;
+  transition: all 0.35s ease-in-out;
+
+  .on {
+    color: gold;
+    font-size: 20px;
+    background-color: unset;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .off {
+    color: silver;
+    font-size: 20px;
+    background-color: unset;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.35s ease-in-out;
+  }
+}

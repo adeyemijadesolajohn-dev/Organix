@@ -1,0 +1,299 @@
+.fourthSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background-color: white;
+  transition: all 0.35s ease-in-out;
+
+  .fourthSectionHeader {
+    font-size: 13.5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.35s ease-in-out;
+
+    .fourthSectionTitle {
+      color: var(--primary-color);
+      transition: all 0.35s ease-in-out;
+    }
+
+    .fourthSectionLink {
+      color: yellowgreen;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: 3.5px;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        color: #f4ad16;
+        text-decoration: underline;
+        margin-left: 7px;
+        gap: 0px;
+        transform: scale(1.1);
+        transition: all 0.35s ease-in-out;
+      }
+
+      .fourthSectionLinkArrow {
+        font-size: 20px;
+        transition: all 0.35s ease-in-out;
+
+        .arrowIcon {
+          display: block;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+
+  .fourthSectionContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 35px;
+    padding-inline: 135px;
+    transition: all 0.35s ease-in-out;
+
+    .fourthSectionImage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2) rotate(-7deg);
+        transition: all 0.35s ease-in-out;
+      }
+
+      .greenMachine {
+        width: 555px;
+        height: 555px;
+        object-fit: contain;
+        border-radius: 10px;
+        transition: all 0.35s ease-in-out;
+      }
+    }
+
+    .fourthSectionText {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      transition: all 0.35s ease-in-out;
+
+      .fourthSectionTextTitle {
+        font-size: 25px;
+        color: var(--primary-color);
+        transition: all 0.35s ease-in-out;
+      }
+
+      .fourthSectionTextPrice {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-block: 13.5px 12px;
+        transition: all 0.35s ease-in-out;
+
+        .fourthSectionTextPriceNew {
+          font-size: 17px;
+          font-weight: 555;
+          color: red;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fourthSectionTextPriceOld {
+          font-size: 15.5px;
+          font-weight: 500;
+          text-decoration: line-through;
+          color: #999;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .fourthSectionTextStatus {
+        font-size: 13.5px;
+        font-weight: 500;
+        margin-block: 0px 12px;
+        color: green;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .fourthSectionTextDescription {
+        width: 100%;
+        font-size: 13.5px;
+        font-weight: 500;
+        margin-block: 0px 13.5px;
+        line-height: 20px;
+        color: #999;
+        transition: all 0.35s ease-in-out;
+
+        .longText {
+          max-height: 0px;
+          overflow: hidden;
+          display: inline-block;
+          transition: max-height 1.23s ease-in-out;
+        }
+
+        .expanded {
+          max-height: 200px;
+          transition: max-height 1.35s ease-in-out;
+        }
+
+        .readMore {
+          color: var(--primary-color);
+          font-size: 13.5px;
+          font-weight: 700;
+          text-decoration: none;
+          text-align: center;
+          margin-left: 7px;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          transition: all 0.35s ease-in-out;
+
+          &:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+            margin-left: 7px;
+            gap: 0px;
+            transform: scale(1.1);
+            transition: all 0.35s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .fourthSection {
+    .fourthSectionContent {
+      gap: 20px;
+      margin-top: 20px;
+      transition: all 0.35s ease-in-out;
+
+      .fourthSectionImage {
+        .greenMachine {
+          width: 500px;
+          height: 500px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .fourthSection {
+    .fourthSectionContent {
+      .fourthSectionImage {
+        .greenMachine {
+          width: 350px;
+          height: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .fourthSectionText {
+        .fourthSectionTextDescription {
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .fourthSection {
+    .fourthSectionContent {
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 35px;
+      transition: all 0.35s ease-in-out;
+
+      .fourthSectionImage {
+        .greenMachine {
+          width: 450px;
+          height: 450px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .fourthSectionText {
+        align-items: center;
+        transition: all 0.35s ease-in-out;
+
+        .fourthSectionTextDescription {
+          width: 500px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fourthSection {
+    .fourthSectionContent {
+      margin-top: 13.5px;
+      transition: all 0.35s ease-in-out;
+
+      .fourthSectionImage {
+        .greenMachine {
+          width: 350px;
+          height: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .fourthSectionText {
+        .fourthSectionTextDescription {
+          width: 350px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .fourthSection {
+    .fourthSectionContent {
+      margin-top: 0px;
+      gap: 0px;
+      transition: all 0.35s ease-in-out;
+
+      .fourthSectionImage {
+        .greenMachine {
+          width: 200px;
+          height: 200px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+
+      .fourthSectionText {
+        .fourthSectionTextPrice {
+          margin-block: 0px 2px;
+          transition: all 0.35s ease-in-out;
+        }
+        .fourthSectionTextDescription {
+          width: 350px;
+          margin-block: 0px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .fourthSectionTextStatus {
+          margin-block: 0px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}

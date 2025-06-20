@@ -1,0 +1,143 @@
+.embla {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+
+  &__container {
+    display: flex;
+    height: 88%;
+  }
+
+  &__slide {
+    flex: 0 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 13.5px;
+    padding-block: 12px;
+    text-align: center;
+    transition: all 0.35s ease-in-out;
+
+    .review-card__avatar {
+      width: 120px;
+      height: 120px;
+      margin-block: 35px 12px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .review-card__text {
+      width: 88%;
+      font-size: 12px;
+      font-weight: 500;
+      color: #999;
+      transition: all 0.35s ease-in-out;
+      margin: 0 auto;
+    }
+
+    .review-card__rating {
+      margin-block: 12px;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .review-card__name {
+      font-size: 20px;
+      font-weight: 700;
+      color: yellowgreen;
+      transition: all 0.35s ease-in-out;
+    }
+    .review-card__location {
+      font-size: 13.5px;
+      color: #999;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-block: 2px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 4px;
+    transition: all 0.35s ease-in-out;
+
+    .embla__button {
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      background: none;
+      color: var(--primary-color);
+      border: none;
+      padding: 3.5px;
+      cursor: pointer;
+      transition: all 0.35s ease-in-out;
+
+      &:hover {
+        background-color: #f4a21e;
+        border: 0.7px outset whitesmoke;
+      }
+
+      &:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 0px;
+    transition: all 0.35s ease-in-out;
+
+    .embla__dot {
+      padding: 2px;
+      border-radius: 50%;
+      background: transparent;
+      border: 0.7px outset transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.35s ease-in-out;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: yellowgreen;
+        transition: all 0.35s ease-in-out;
+      }
+
+      &:hover::before {
+        transform: scale(1.35);
+        background: #f4a21e;
+      }
+
+      &--selected {
+        border: 0.7px outset var(--primary-color);
+
+        &::before {
+          background: var(--primary-color);
+          width: 13.5px;
+        }
+      }
+    }
+  }
+}
