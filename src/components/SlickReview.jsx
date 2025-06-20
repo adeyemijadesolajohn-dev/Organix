@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import "../styles/SlickReview.scss";
 import { Reviews } from "../Data/Reviews";
 import Slider from "react-slick";

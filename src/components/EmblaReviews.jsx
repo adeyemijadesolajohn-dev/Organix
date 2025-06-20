@@ -8,7 +8,7 @@ import {
 } from "./EmblaCarouselArrowButtons";
 import { useDotButton, DotButton } from "./EmblaCarouselDotButton";
 import StarRating from "./StarRating";
-import { Reviews } from "../Data/Reviews"; // <-- Import the prepared list of 35 reviews
+import { Reviews } from "../Data/Reviews";
 import "../styles/EmblaReviews.scss";
 
 export default function ReviewSlider({

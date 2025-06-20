@@ -304,6 +304,7 @@
     .footerContent {
       .upperFooter {
         padding: 23.5px 70px;
+        transition: all 0.35s ease-in-out;
 
         .upperFooterRight {
           width: 300px;
@@ -313,10 +314,12 @@
 
       .middleFooter {
         padding: 35px 70px;
+        transition: all 0.35s ease-in-out;
       }
 
       .lowerFooter {
         padding: 35px 70px;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -342,6 +345,7 @@
         flex-direction: column;
         justify-content: center;
         gap: 23.5px;
+        transition: all 0.35s ease-in-out;
 
         .upperFooterRight {
           width: 100%;

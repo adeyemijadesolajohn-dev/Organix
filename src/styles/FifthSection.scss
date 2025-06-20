@@ -135,6 +135,7 @@
   .fifthSection {
     .fifthSectionContent {
       gap: 0;
+      transition: all 0.35s ease-in-out;
 
       .fifthSectionText {
         .fifthSectionTextTitle {
@@ -158,10 +159,12 @@
     margin-top: 35px;
     padding-top: 70px;
     height: 100vh;
+    transition: all 0.35s ease-in-out;
 
     .fifthSectionContent {
       flex-direction: column;
       padding: 0px;
+      transition: all 0.35s ease-in-out;
 
       .fifthSectionText {
         margin-right: 0px;
@@ -187,6 +190,7 @@
 @media screen and (max-width: 600px) {
   .fifthSection {
     padding-top: 35px;
+    transition: all 0.35s ease-in-out;
 
     .fifthSectionContent {
       .fifthSectionText {
@@ -207,6 +211,7 @@
 @media screen and (max-width: 520px) {
   .fifthSection {
     padding-top: 20px;
+    transition: all 0.35s ease-in-out;
 
     .fifthSectionContent {
       .fifthSectionText {

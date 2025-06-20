@@ -1,5 +1,4 @@
 .slickReview {
-  //   max-width: 1500px;
   width: 100%;
   margin-top: 35px;
   height: 100%;
@@ -12,6 +11,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    transition: all 0.35s ease-in-out;
 
     .reviewSlide {
       height: fit-content;
@@ -78,16 +78,15 @@
 
 .slick-arrow:before {
   content: none;
+  transition: all 0.35s ease-in-out;
 }
 
-/* Re‑usable round droplet button */
 .droplet {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  /* water‑drop texture made from layered gradients */
   background: radial-gradient(
       circle at 30% 30%,
       rgba(255, 255, 255, 0.65) 0 30%,
@@ -98,23 +97,25 @@
       rgba(255, 255, 255, 0.25) 0 25%,
       transparent 26%
     ),
-    #3da4f7; /* base drop color */
+    #3da4f7;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.15s ease;
 }
+
 .droplet:hover {
   transform: scale(1.08);
+  transition: all 0.35s ease-in-out;
 }
+
 .droplet:active {
   transform: scale(0.94);
+  transition: all 0.35s ease-in-out;
 }
 
-/* Flip the previous arrow so both share one SVG or pseudo */
 .droplet.prev {
   transform: rotate(180deg);
+  transition: all 0.35s ease-in-out;
 }
-
-/* ---------- DOTS ---------- */
 
 .custom-dots {
   display: flex;
@@ -122,18 +123,19 @@
   gap: 0.5rem;
   margin-top: 1rem;
   margin: 0;
+  transition: all 0.35s ease-in-out;
 }
 
-/* remove Slick’s default dot char */
 .custom-dots li button:before {
   content: none;
+  transition: all 0.35s ease-in-out;
 }
 
 .dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #cddb3d; /* yellow‑green default */
+  background: #cddb3d;
   transition: background 0.2s ease;
   border: none;
   cursor: pointer;
@@ -141,10 +143,12 @@
 
 .custom-dots li button:hover,
 .custom-dots li button:focus-visible {
-  background: #ff8200; /* orange hover */
+  background: #ff8200;
+  transition: all 0.35s ease-in-out;
 }
 
 .custom-dots li.slick-active button {
-  background: #1abc54; /* green active */
-  box-shadow: 0 0 0 3px rgba(26, 188, 84, 0.4); /* halo */
+  background: #1abc54;
+  box-shadow: 0 0 0 3px rgba(26, 188, 84, 0.4);
+  transition: all 0.35s ease-in-out;
 }

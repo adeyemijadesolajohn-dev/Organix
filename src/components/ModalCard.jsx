@@ -39,8 +39,6 @@ const ModalCard = ({
         <div className="modalCardContent">
           <h4 className="modalCardTitle">{title}</h4>
 
-          {/* <p className="modalCardCategory">{category}</p> */}
-
           <p className="modalCardDescription">{description}</p>
 
           <div className="modalCardBottom">

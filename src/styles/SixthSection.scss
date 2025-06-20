@@ -96,6 +96,7 @@
 
           .buttonIcon {
             display: block;
+            transition: all 0.35s ease-in-out;
           }
         }
       }
@@ -260,7 +261,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.35s ease-in-out;
 
   .dropdownSelect {
     background-color: transparent;

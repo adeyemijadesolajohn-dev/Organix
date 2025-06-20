@@ -38,11 +38,13 @@
         left: -120px;
         top: -70px;
         z-index: 1;
+        transition: all 0.35s ease-in-out;
       }
 
       .greenBGRight {
         right: 0;
         bottom: -70px;
+        transition: all 0.35s ease-in-out;
       }
     }
 
@@ -65,7 +67,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      // margin-top: 7px;
       transition: all 0.35s ease-in-out;
 
       .seventhSectionReviewFooterText {
@@ -93,10 +94,12 @@
 @media (max-width: 1444px) {
   .seventhSection {
     height: 80vh;
+    transition: all 0.35s ease-in-out;
 
     .seventhSectionContent {
       .seventhSectionReview {
         width: 40%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -108,11 +111,13 @@
       .seventhSectionBG {
         img {
           height: 222%;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 41%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -124,16 +129,19 @@
       .seventhSectionBG {
         img {
           height: 222%;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGLeft {
           left: -135px;
           top: -55px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 42%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -142,21 +150,25 @@
 @media (max-width: 1188px) {
   .seventhSection {
     height: 88vh;
+    transition: all 0.35s ease-in-out;
 
     .seventhSectionContent {
       .seventhSectionBG {
         img {
           height: 200%;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGLeft {
           left: -200px;
           top: 0px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 44%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -168,19 +180,23 @@
       .seventhSectionBG {
         img {
           height: 200%;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGLeft {
           left: -250px;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGRight {
           right: -100px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 50%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -192,19 +208,23 @@
       .seventhSectionBG {
         img {
           height: 200%;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGLeft {
           left: -300px;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGRight {
           right: -100px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 50%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -216,19 +236,23 @@
       .seventhSectionBG {
         img {
           height: 200%;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGLeft {
           left: -350px;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGRight {
           right: -120px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 55%;
+        transition: all 0.35s ease-in-out;
       }
     }
   }
@@ -237,25 +261,30 @@
 @media (max-width: 888px) {
   .seventhSection {
     border-block: none;
+    transition: all 0.35s ease-in-out;
 
     .seventhSectionContent {
       .seventhSectionBG {
         img {
           height: 200%;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGLeft {
           left: -500px;
+          transition: all 0.35s ease-in-out;
         }
 
         .greenBGRight {
           right: -135px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .seventhSectionReview {
         width: 100%;
         background-color: whitesmoke;
+        transition: all 0.35s ease-in-out;
       }
     }
   }

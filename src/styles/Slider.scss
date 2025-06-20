@@ -69,6 +69,7 @@
 
     &::-webkit-scrollbar {
       display: none;
+      transition: all 0.35s ease-in-out;
     }
 
     .card {

@@ -130,16 +130,19 @@
 
         &::-webkit-scrollbar {
           display: none;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .itemCard.dragging {
         scroll-snap-type: none;
         scroll-behavior: auto;
+        transition: all 0.35s ease-in-out;
 
         .content {
           cursor: grab;
           user-select: none;
+          transition: all 0.35s ease-in-out;
         }
       }
     }

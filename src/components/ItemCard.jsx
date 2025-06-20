@@ -59,8 +59,6 @@ const ItemCard = ({
         <div className="itemCardContent">
           <h4 className="itemCardTitle">{title}</h4>
 
-          {/* <p className="itemCardDescription">{category}</p> */}
-
           <div className="itemCardBottom">
             <StarRating />
 
