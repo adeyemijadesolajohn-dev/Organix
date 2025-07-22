@@ -37,7 +37,7 @@ import chickenLegPolloALaBrasa from "../assets/resized/chicken-meat-chicken-leg-
 import halalRedMuttonJingisukanChops from "../assets/resized/halal-red-meat-lamb-and-mutton-jingisukan-meat-chop-lamb-chops-1a5034b4f9ccaf5d226c301452991918.png";
 import lambLeg from "../assets/resized/boning-knife-blade-stainless-steel-carbon-steel-meat-08df69edf48553f753c5ab56a7663eab.png";
 import croissant from "../assets/resized/pngfind.com-croissant-png-2835813.png";
-import chocolateDrizzledGourmetPistachioCookie from "../assets/resized/vecteezy_gourmet-pistachio-cookie-with-chocolate-drizzle-high-quality_57190279.PNG";
+import chocolateDrizzledGourmetPistachioCookie from "../assets/resized/vecteezy_gourmet-pistachio-cookie-with-chocolate-drizzle-high-quality_57190279.png";
 import frenchRolls from "../assets/resized/vecteezy_delicious-croissant-clipart-for-french-inspired-food-content_52242115.png";
 import deansChocolateIceCreamTub from "../assets/resized/toppng.com-deans-chocolate-ice-cream-tub-packaging-536x379.png";
 import edysSlowChurnedYogurtBlendsChocolateVanillaSwirl from "../assets/resized/1e6897fb64335c3cc113feea298f3792.png";
