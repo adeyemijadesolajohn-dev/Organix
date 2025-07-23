@@ -8,6 +8,8 @@ import {
   MdClose,
 } from "react-icons/md";
 import { PiUserCircleBold } from "react-icons/pi";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const today = new Date();
 const formatDate = (date) =>
@@ -56,7 +58,7 @@ const posts = [
 
 const AuthorPopover = ({ name }) => (
   <div className="authorPopover">
-    <img src={images.leaves} alt={name} />
+    <img className="popAvatar" src={images.leaves} alt={name} />
     <span className="name">{name}</span>
   </div>
 );
@@ -92,7 +94,9 @@ const EightSection = () => {
   };
 
   const handleCommentClick = (id) => {
-    setComments((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+    if (id === 1) {
+      setComments((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+    }
   };
 
   return (
@@ -110,7 +114,25 @@ const EightSection = () => {
         {posts.map((post) => (
           <div className="eightSectionCard" key={post.id}>
             <div className="eightSectionCardImage">
-              <img src={post.image} alt={post.title} />
+              <LazyLoadImage
+                src={post.image}
+                alt={post.title}
+                effect="blur"
+                placeholderSrc={
+                  post.lowResImage || "path/to/default-placeholder.jpg"
+                }
+                width="100%"
+                height="auto"
+                wrapperProps={{
+                  style: {
+                    display: "block",
+                    width: "100%",
+                    height: "100%",
+                    transition: "all 0.35s ease-in-out",
+                  },
+                }}
+                className="eightSectionCardImg"
+              />
             </div>
 
             <div className="eightSectionCardContent">

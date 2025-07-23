@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StarRating from "./StarRating";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -95,7 +97,14 @@ const SlickReview = () => {
           <div key={review.id} className="track">
             <div className="reviewSlide">
               <div className="profilePic">
-                <img src={review.image} alt={review.name} className="avatar" />
+                <LazyLoadImage
+                  src={review.image}
+                  alt={review.name || "Reviewer profile picture"}
+                  className="avatar"
+                  effect="blur"
+                  width="100%"
+                  height="100%"
+                />
               </div>
 
               <div className="review">

@@ -39,7 +39,7 @@
       transition: all 0.35s ease-in-out;
     }
 
-    button {
+    .filterButton {
       border: none;
       background-color: unset;
       outline: none;
@@ -57,7 +57,7 @@
         transition: all 0.35s ease-in-out;
       }
 
-      &:active {
+      &.active {
         color: yellowgreen;
         transform: scale(1.1);
         text-decoration: underline;

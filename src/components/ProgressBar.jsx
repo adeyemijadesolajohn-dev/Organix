@@ -57,12 +57,12 @@ const ProgressBar = () => {
   return (
     <div className="progressBar">
       <div className="progressBarText">
-        <p>
-          Sold: <span>{progress}</span>
+        <p className="progressBarTitle">
+          Sold: <span className="progressBarNumber">{progress}</span>
         </p>
 
-        <p>
-          Available: <span>{remaining}</span>
+        <p className="progressBarTitle">
+          Available: <span className="progressBarNumber">{remaining}</span>
         </p>
       </div>
 

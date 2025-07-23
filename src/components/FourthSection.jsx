@@ -5,6 +5,8 @@ import { images } from "../Data/Images";
 import StarRating from "./StarRating";
 import CountDown from "./CountDown";
 import ProgressBar from "./ProgressBar";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const FourthSection = () => {
   const [collapse, setCollapse] = useState(false);
@@ -25,10 +27,17 @@ const FourthSection = () => {
 
       <div className="fourthSectionContent">
         <div className="fourthSectionImage">
-          <img
+          <LazyLoadImage
             className="greenMachine"
             src={images.greenMachine}
             alt="Green Machine"
+            effect="blur"
+            placeholderSrc={images.greenMachineLowRes}
+            width="100%"
+            height="auto"
+            wrapperProps={{
+              style: { display: "block", width: "100%", height: "100%" },
+            }}
           />
         </div>
 

@@ -1,55 +1,88 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/CountDown.scss";
 
 const CountDown = () => {
-  const rundown = () => {
-    const endDate = new Date("January 1, 2030 00:00:00").getTime();
-    const now = new Date().getTime();
+  const endDate = new Date("January 1, 2030 00:00:00").getTime();
 
-    const difference = endDate - now;
+  const [timeLeft, setTimeLeft] = useState({
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
 
-    const seconds = 1000;
-    const minutes = seconds * 60;
-    const hours = minutes * 60;
-    const days = hours * 24;
+  useEffect(() => {
+    // Function to calculate and update the time left
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = endDate - now;
 
-    let timeDays = Math.floor(difference / days);
-    let timeHours = Math.floor((difference % days) / hours);
-    let timeMinutes = Math.floor((difference % hours) / minutes);
-    let timeSeconds = Math.floor((difference % minutes) / seconds);
+      if (difference < 0) {
+        // If the countdown is over
+        clearInterval(interval); // Stop the interval
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        return;
+      }
 
-    timeHours = timeHours < 10 ? "0" + timeHours : timeHours;
-    timeMinutes = timeMinutes < 10 ? "0" + timeMinutes : timeMinutes;
-    timeSeconds = timeSeconds < 10 ? "0" + timeSeconds : timeSeconds;
+      const seconds = 1000;
+      const minutes = seconds * 60;
+      const hours = minutes * 60;
+      const days = hours * 24;
 
-    document.getElementById("days").innerHTML = timeDays;
-    document.getElementById("hours").innerHTML = timeHours;
-    document.getElementById("minutes").innerHTML = timeMinutes;
-    document.getElementById("seconds").innerHTML = timeSeconds;
-  };
+      const timeDays = Math.floor(difference / days);
+      const timeHours = Math.floor((difference % days) / hours);
+      const timeMinutes = Math.floor((difference % hours) / minutes);
+      const timeSeconds = Math.floor((difference % minutes) / seconds);
 
-  setInterval(rundown, 1000);
+      // Pad with leading zeros
+      const formatNumber = (num) => (num < 10 ? "0" + num : num.toString());
+
+      setTimeLeft({
+        days: formatNumber(timeDays),
+        hours: formatNumber(timeHours),
+        minutes: formatNumber(timeMinutes),
+        seconds: formatNumber(timeSeconds),
+      });
+    };
+
+    // Call it once immediately to set the initial values
+    calculateTimeLeft();
+
+    // Set up the interval
+    const interval = setInterval(calculateTimeLeft, 1000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
+  }, [endDate]); // Re-run effect if endDate changes
 
   return (
     <div className="countdown">
-      <div>
-        <p id="days">00</p>
-        <h5>DAYS</h5>
+      <div className="countdownItem">
+        <p className="countdownTimer" id="days">
+          {timeLeft.days}
+        </p>
+        <h5 className="countdownText">DAYS</h5>
       </div>
 
-      <div>
-        <p id="hours">00</p>
-        <h5>HRS</h5>
+      <div className="countdownItem">
+        <p className="countdownTimer" id="hours">
+          {timeLeft.hours}
+        </p>
+        <h5 className="countdownText">HRS</h5>
       </div>
 
-      <div>
-        <p id="minutes">00</p>
-        <h5>MINS</h5>
+      <div className="countdownItem">
+        <p className="countdownTimer" id="minutes">
+          {timeLeft.minutes}
+        </p>
+        <h5 className="countdownText">MINS</h5>
       </div>
 
-      <div>
-        <p id="seconds">00</p>
-        <h5>SECS</h5>
+      <div className="countdownItem">
+        <p className="countdownTimer" id="seconds">
+          {timeLeft.seconds}
+        </p>
+        <h5 className="countdownText">SECS</h5>
       </div>
     </div>
   );

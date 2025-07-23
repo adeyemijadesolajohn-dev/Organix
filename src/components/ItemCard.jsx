@@ -3,8 +3,9 @@ import "../styles/ItemCard.scss";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import StarRating from "./StarRating";
 import ModalCard from "./ModalCard";
-import "../styles/StarRating.scss";
-import { FaStar, FaRegStar } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 const ItemCard = ({
   id,
   left,
@@ -48,11 +49,15 @@ const ItemCard = ({
           {likedItems.includes(id) ? <FaHeart /> : <FaRegHeart />}
         </button>
         <div className="itemCardImage">
-          <img
+          <LazyLoadImage
             src={image}
-            alt="image"
+            alt={title || "Product image"}
+            effect="blur"
             draggable="false"
             onClick={() => setShowModal(true)}
+            width="100%"
+            height="auto"
+            className="itemCardImg"
           />
         </div>
 

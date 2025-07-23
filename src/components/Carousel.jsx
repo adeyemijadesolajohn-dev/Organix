@@ -4,6 +4,8 @@ import StarRating from "./StarRating";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Carousel = ({ item }) => {
   const settings = {
@@ -42,7 +44,22 @@ const Carousel = ({ item }) => {
               {like ? <FaHeart /> : <FaRegHeart />}
             </button>
             <div className="cardImage">
-              <img src={val.image} alt="" />
+              <LazyLoadImage
+                alt={val.title}
+                effect="blur"
+                src={val.image}
+                width="100%"
+                height="auto"
+                wrapperProps={{
+                  style: {
+                    display: "block",
+                    height: "100%",
+                    width: "100%",
+                    transition: "all 0.35s ease-in-out",
+                  },
+                }}
+                className="cardImg"
+              />
             </div>
 
             <div className="cardContent">

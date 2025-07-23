@@ -113,11 +113,17 @@ const SixthSection = () => {
                   onChange={handleCategoryChange}
                   className="dropdownSelect"
                 >
-                  <option value="All">All Products</option>
+                  <option className="dropdownOption" value="All">
+                    All Products
+                  </option>
 
                   {[...new Set(Produce.map((item) => item.category))].map(
                     (category) => (
-                      <option key={category} value={category}>
+                      <option
+                        className="dropdownOption"
+                        key={category}
+                        value={category}
+                      >
                         {category}
                       </option>
                     )

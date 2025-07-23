@@ -1,13 +1,23 @@
 import React from "react";
 import "../styles/SecondSection.scss";
 import { images } from "../Data/Images";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const SecondSection = () => {
   return (
     <div className="secondSection">
       <div className="secondSectionContent">
         <div className="secondSectionCard">
-          <img src={images.planting} alt="" />
+          <LazyLoadImage
+            className="secondSectionImage"
+            src={images.planting}
+            alt="Person planting seedlings"
+            effect="blur"
+            placeholderSrc={images.plantingLowRes}
+            width="100%"
+            height="auto"
+          />
 
           <h4 className="secondSectionTitle">Who We Are</h4>
 
@@ -20,7 +30,15 @@ const SecondSection = () => {
         </div>
 
         <div className="secondSectionCard">
-          <img src={images.quality} alt="" />
+          <LazyLoadImage
+            className="secondSectionImage"
+            src={images.quality}
+            alt="Basket of fresh, high-quality organic produce"
+            effect="blur"
+            placeholderSrc={images.qualityLowRes}
+            width="100%"
+            height="auto"
+          />
 
           <h4 className="secondSectionTitle">Our Products</h4>
 
@@ -33,7 +51,15 @@ const SecondSection = () => {
         </div>
 
         <div className="secondSectionCard">
-          <img src={images.blackGrape} alt="" />
+          <LazyLoadImage
+            className="secondSectionImage"
+            src={images.blackGrape}
+            alt="Hand holding ripe black grapes"
+            effect="blur"
+            placeholderSrc={images.blackGrapeLowRes}
+            width="100%"
+            height="auto"
+          />
 
           <h4 className="secondSectionTitle">How We Work</h4>
 

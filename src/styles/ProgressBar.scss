@@ -14,13 +14,13 @@
     width: 100%;
     transition: all 0.35s ease-in-out;
 
-    p {
+    .progressBarTitle {
       font-size: 13.5px;
       color: var(--primary-color);
       font-weight: 500;
       transition: all 0.35s ease-in-out;
 
-      span {
+      .progressBarNumber {
         font-weight: 555;
         transition: all 0.35s ease-in-out;
       }
@@ -32,6 +32,7 @@
     height: 12px;
     background-color: #e0e0e0;
     border-radius: 12px;
+    overflow: hidden;
     transition: all 0.35s ease-in-out;
 
     .progressBarFill {

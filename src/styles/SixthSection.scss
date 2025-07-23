@@ -277,13 +277,13 @@
       color: #f4a21e;
       transition: all 0.35s ease-in-out;
 
-      option {
+      .dropdownOption {
         color: var(--primary-color);
         transition: all 0.35s ease-in-out;
       }
     }
 
-    option {
+    .dropdownOption {
       background-color: rgba(255, 255, 255, 0.35);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(2px);

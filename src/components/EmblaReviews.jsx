@@ -10,6 +10,8 @@ import { useDotButton, DotButton } from "./EmblaCarouselDotButton";
 import StarRating from "./StarRating";
 import { Reviews } from "../Data/Reviews";
 import "../styles/EmblaReviews.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function ReviewSlider({
   autoplayInterval = 7000,
@@ -54,10 +56,21 @@ export default function ReviewSlider({
               style={{ width: "100%", textAlign: "center" }}
             >
               <div className="review-card">
-                <img
+                <LazyLoadImage
                   src={review.image}
                   alt={`Avatar of ${review.name}`}
                   className="review-card__avatar"
+                  effect="blur"
+                  width="auto"
+                  height="auto"
+                  wrapperProps={{
+                    style: {
+                      display: "inline-block",
+                      borderRadius: "50%",
+                      overflow: "hidden",
+                    },
+                  }}
+                  style={{ objectFit: "cover" }}
                 />
                 <p className="review-card__text">"{review.review}"</p>
                 <div className="review-card__rating">

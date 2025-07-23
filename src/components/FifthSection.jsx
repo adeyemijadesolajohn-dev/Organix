@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/FifthSection.scss";
 import { images } from "../Data/Images";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const FifthSection = () => {
   return (
@@ -25,11 +27,19 @@ const FifthSection = () => {
             src={images.brushStroke}
             alt="brush stroke"
           />
-          <img className="pomidor" src={images.pomidor} alt="pomidor" />
+          <LazyLoadImage
+            className="pomidor"
+            src={images.pomidor}
+            alt="pomidor"
+            effect="blur"
+            placeholderSrc={images.pomidorLowRes}
+            width="100%"
+            height="auto"
+          />
           <img
             className="leavesBlowing"
             src={images.leavesBlowing}
-            alt=" leaves"
+            alt="leaves"
           />
         </div>
       </div>

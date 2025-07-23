@@ -11,7 +11,11 @@ const SeventhSection = () => {
     <div className="seventhSection">
       <div className="seventhSectionContent">
         <div className="seventhSectionBG">
-          <img className="greenBGLeft" src={images.greenBg} alt="background" />
+          <img
+            className="greenImg greenBGLeft"
+            src={images.greenBg}
+            alt="background"
+          />
         </div>
 
         <div className="seventhSectionReview">
@@ -33,7 +37,11 @@ const SeventhSection = () => {
         </div>
 
         <div className="seventhSectionBG">
-          <img className="greenBGRight" src={images.greenBg} alt="background" />
+          <img
+            className="greenImg greenBGRight"
+            src={images.greenBg}
+            alt="background"
+          />
         </div>
       </div>
     </div>

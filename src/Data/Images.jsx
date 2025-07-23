@@ -2,10 +2,13 @@ import deck from "../assets/resized/[GetPaidStock.com]-683973c78e6f0.jpg";
 import organicStamp from "../assets/resized/[GetPaidStock.com]-683981b597676.png";
 import yellowCherryTomato from "../assets/resized/13150e6a893ad38a6336941732d5b845.png";
 import sorbetMangoIceCream from "../assets/resized/5260318.png";
-import blackGrape from "../assets/resized/andrew-welch-116539_02.jpg";
+import blackGrape from "../assets/andrew-welch-116539_02.jpg";
+import blackGrapeLowRes from "../assets/resized/andrew-welch-116539_02.jpg";
 import violetCauliflower from "../assets/resized/d41470ad19292a0bfda85504d192ce12.png";
-import planting from "../assets/resized/freepik__upload__23598.png";
-import quality from "../assets/resized/freepik__upload__51834.png";
+import planting from "../assets/freepik__upload__23598.png";
+import plantingLowRes from "../assets/resized/freepik__upload__23598.png";
+import quality from "../assets/freepik__upload__51834.png";
+import qualityLowRes from "../assets/resized/freepik__upload__51834.png";
 import leaves from "../assets/leaves-icon.svg";
 import seedlessWhiteGrape from "../assets/resized/pngegg (4).png";
 import redPithaya from "../assets/resized/pngegg (5).png";
@@ -178,13 +181,17 @@ import breadLoaves from "../assets/resized/vecteezy_ai-generated-bread-in-basket
 import octopus from "../assets/resized/dish-meal-food-seafood-market-squid-1287296-pxhere.com.jpg";
 import greenDrink from "../assets/resized/jugoslocos-GHsf8ny3LF0-unsplash.jpg";
 import jarritosMexicanSoda from "../assets/resized/jarritos-mexican-soda-1-GEm3U3CSM-unsplash.jpg";
-import greenMachine from "../assets/resized/fe6a7def8dac1032674a1c09b27e4be4.png";
-import pomidor from "../assets/resized/pomidor.png";
-import greenBackground from "../assets/resized/green background.png";
+import greenMachine from "../assets/fe6a7def8dac1032674a1c09b27e4be4.png";
+import greenMachineLowRes from "../assets/resized/fe6a7def8dac1032674a1c09b27e4be4.png";
+import pomidor from "../assets/pomidor.png";
+import pomidorLowRes from "../assets/resized/pomidor.png";
+import greenBackground from "../assets/green background.png";
 import grungeWood from "../assets/resized/[GetPaidStock.com]-68498a9c3d860.png";
-import brushStroke from "../assets/resized/Pink-Brush-Stroke-Transparent-File.png";
-import leavesBlowing from "../assets/resized/Lovepik_com-400664337-green-leaf.png";
-import greenBg from "../assets/resized/[GetPaidStock.com]-684976479ed9b.jpg";
+import brushStroke from "../assets/Pink-Brush-Stroke-Transparent-File.png";
+import brushStrokeLowRes from "../assets/resized/Pink-Brush-Stroke-Transparent-File.png";
+import leavesBlowing from "../assets/Lovepik_com-400664337-green-leaf.png";
+import leavesBlowingLowRes from "../assets/resized/Lovepik_com-400664337-green-leaf.png";
+import greenBg from "../assets/[GetPaidStock.com]-684976479ed9b.jpg";
 
 export const images = {
   deck,
@@ -192,9 +199,12 @@ export const images = {
   yellowCherryTomato,
   sorbetMangoIceCream,
   blackGrape,
+  blackGrapeLowRes,
   violetCauliflower,
   planting,
+  plantingLowRes,
   quality,
+  qualityLowRes,
   leaves,
   seedlessWhiteGrape,
   redPithaya,
@@ -368,10 +378,14 @@ export const images = {
   greenDrink,
   jarritosMexicanSoda,
   greenMachine,
+  greenMachineLowRes,
   pomidor,
+  pomidorLowRes,
   greenBackground,
   grungeWood,
   brushStroke,
+  brushStrokeLowRes,
   leavesBlowing,
+  leavesBlowingLowRes,
   greenBg,
 };

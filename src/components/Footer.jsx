@@ -128,7 +128,11 @@ const Footer = () => {
 
         <div className="lowerFooter">
           <div className="lowerFooterLogo">
-            <img src={images.leaves} alt="organix logo" />
+            <img
+              className="lowerFooterLogoImage"
+              src={images.leaves}
+              alt="organix logo"
+            />
             <h3 className="lowerFooterLogoText">organix</h3>
           </div>
 

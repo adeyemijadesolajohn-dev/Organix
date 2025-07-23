@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/ModalCard.scss";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { HiMiniXMark } from "react-icons/hi2";
 import StarRating from "./StarRating";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const ModalCard = ({
   id,
@@ -33,7 +35,15 @@ const ModalCard = ({
         </button>
 
         <div className="modalCardImage">
-          <img src={image} alt="image" draggable="false" />
+          <LazyLoadImage
+            src={image}
+            alt={title || "Product image"}
+            effect="blur"
+            draggable="false"
+            width="auto"
+            height="100%"
+            className="modalImage"
+          />
         </div>
 
         <div className="modalCardContent">
@@ -64,11 +74,11 @@ const ModalCard = ({
             </span>
 
             <div className="modalCardButton">
-              <button type="button" className="modalAddToCart">
+              <button type="button" className="modalButton">
                 Add to Cart
               </button>
 
-              <button type="button" className="modalBuyNow">
+              <button type="button" className="modalButton">
                 Buy Now
               </button>
             </div>
