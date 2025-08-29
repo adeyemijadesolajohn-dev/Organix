@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/Slick.scss";
 import SlickSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -8,6 +8,8 @@ import StarRating from "./StarRating";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useLikes } from "../context/LikeContext";
+import { useCart } from "../context/CartContext";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -70,27 +72,22 @@ function SamplePrevArrow(props) {
 }
 
 const ProductCarousel = ({ item, initialSlide, onSlideChange }) => {
+  const [popup, setPopup] = useState(null);
   const sliderRef = useRef(null);
-
-  useEffect(() => {
-    setLikedStates(new Array(item.length).fill(false));
-  }, [item]);
-
-  const [likedStates, setLikedStates] = useState(
-    new Array(item.length).fill(false)
-  );
-
-  const handleLike = (index) => () => {
-    const updatedLikedStates = [...likedStates];
-    updatedLikedStates[index] = !updatedLikedStates[index];
-    setLikedStates(updatedLikedStates);
-  };
+  const { likedItems, toggleLike } = useLikes();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     if (sliderRef.current && initialSlide !== undefined) {
       sliderRef.current.slickGoTo(initialSlide, true);
     }
   }, [item, initialSlide]);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setPopup(product);
+    setTimeout(() => setPopup(null), 7000);
+  };
 
   var settings = {
     dots: false,
@@ -192,74 +189,84 @@ const ProductCarousel = ({ item, initialSlide, onSlideChange }) => {
   };
 
   return (
-    <ul className="slickWrapper">
-      <SlickSlider ref={sliderRef} {...settings}>
-        {item.map((val, index) => (
-          <li key={val.id} className="slickCard">
-            <div className="slickContent">
-              <div className="slickTop">
-                <span
-                  className="slickStatus"
-                  style={{
-                    backgroundColor: `${
-                      val.left === "New" ? "yellowgreen" : "red"
-                    }`,
-                  }}
-                >
-                  {val.left}
-                </span>
-                <button
-                  type="button"
-                  onClick={handleLike(index)}
-                  className="slickHeart"
-                >
-                  {likedStates[index] ? <FaHeart /> : <FaRegHeart />}
-                </button>
-                <div className="slickCardImage">
-                  <LazyLoadImage
-                    className="slickImage"
-                    src={val.image}
-                    alt={val.title || "Product image"}
-                    effect="blur"
-                    draggable="false"
-                    width="100%"
-                    height="auto"
-                    wrapperProps={{
-                      style: {
-                        display: "block",
-                        height: "100%",
-                        width: "100%",
-                        transition: "all 0.35s ease-in-out",
-                      },
-                    }}
-                  />
-                </div>
-
-                <div className="slickCardContent">
-                  <h4 className="slickCardTitle">{val.title}</h4>
-                </div>
-              </div>
-
-              <div className="slickCardBottom">
-                <StarRating />
-
-                <div className="slickCardPrice">
-                  <p
-                    className="slickDiscount"
+    <>
+      <ul className="slickWrapper">
+        <SlickSlider ref={sliderRef} {...settings}>
+          {item.map((val) => (
+            <li key={val.id} className="slickCard">
+              <div className="slickContent">
+                <div className="slickTop">
+                  <span
+                    className="slickStatus"
                     style={{
-                      color: `${val.original === null ? "gold" : "red"}`,
+                      backgroundColor: `${
+                        val.left === "New" ? "yellowgreen" : "red"
+                      }`,
                     }}
                   >
-                    {val.discount}
-                  </p>
-                  <p className="slickOriginal">{val.original}</p>
+                    {val.left}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => toggleLike(val.id)}
+                    className="slickHeart"
+                  >
+                    {likedItems.includes(val.id) ? <FaHeart /> : <FaRegHeart />}
+                  </button>
+                  <div className="slickCardImage">
+                    <LazyLoadImage
+                      className="slickImage"
+                      src={val.image}
+                      alt={val.title || "Product image"}
+                      effect="blur"
+                      draggable="false"
+                    />
+                  </div>
+
+                  <div className="slickCardContent">
+                    <h4
+                      className="slickCardTitle"
+                      onClick={() => handleAddToCart(val)}
+                    >
+                      {val.title}
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="slickCardBottom">
+                  <StarRating />
+
+                  <div className="slickCardPrice">
+                    <p
+                      className="slickDiscount"
+                      style={{
+                        color: `${val.original === null ? "gold" : "red"}`,
+                      }}
+                    >
+                      {val.discount}
+                    </p>
+                    <p className="slickOriginal">{val.original}</p>
+                  </div>
                 </div>
               </div>
+            </li>
+          ))}
+        </SlickSlider>
+      </ul>
+      {popup && (
+        <div className="cartPopup">
+          <div className="popupContent">
+            <BiCheckCircle className="checkmark-icon" />
+            <img src={popup.image} alt={popup.title} className="popupImage" />
+            <div className="popupDetails">
+              <p>Added to Cart</p>
+              <h4>{popup.title}</h4>
+              <p>{popup.discount}</p>
             </div>
-          </li>
-        ))}
-      </SlickSlider>
-    </ul>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

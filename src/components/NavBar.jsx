@@ -16,9 +16,15 @@ import { images } from "../Data/Images";
 import { Produce } from "../Data/Items";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import AuthModal from "./Auth";
+import WishlistModal from "./WishlistModal";
+import { useLikes } from "../context/LikeContext";
+import { useCart } from "../context/CartContext";
+import CartModal from "./CartModal";
 
 const Nav = () => {
-  const [wishlistCount, setWishlistCount] = useState(0);
+  const { likedItems } = useLikes();
+  const { cartItems, addToCart } = useCart();
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,9 +36,34 @@ const Nav = () => {
   const [isSearchFormActive, setIsSearchFormActive] = useState(false);
   const searchInputRef = useRef(null);
   const searchContainerRef = useRef(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showWishlistModal, setShowWishlistModal] = useState(false);
+  const [showCartModal, setShowCartModal] = useState(false);
+  const [initialCartStage, setInitialCartStage] = useState("cart");
 
-  const handleWishlistClick = useCallback(() => {
-    setWishlistCount((prevCount) => prevCount + 1);
+  const handleShoppingBagClick = (e) => {
+    e.preventDefault();
+    setInitialCartStage("cart");
+    setShowCartModal(true);
+  };
+
+  const closeCartModal = () => {
+    setShowCartModal(false);
+    setInitialCartStage("cart");
+  };
+
+  const handleUserIconClick = (e) => {
+    e.preventDefault();
+    setShowAuthModal(true);
+  };
+
+  const closeAuthModal = () => {
+    setShowAuthModal(false);
+  };
+
+  const handleWishlistClick = useCallback((e) => {
+    e.preventDefault();
+    setShowWishlistModal(true);
   }, []);
 
   const toggleSearchForm = useCallback(() => {
@@ -104,8 +135,6 @@ const Nav = () => {
         !event.target.closest(".searchButton")
       ) {
         setShowSearchResultsDropdown(false);
-        // when clicking outside the search input area (but not the toggle button).
-        // if (isSearchFormActive) setIsSearchFormActive(false);
       }
     };
 
@@ -128,7 +157,20 @@ const Nav = () => {
   }, []);
 
   const ProductDetailModal = ({ item, onClose }) => {
+    const handleAddToCart = () => {
+      addToCart(item);
+      onClose();
+    };
+
+    const handleBuyNow = () => {
+      addToCart(item);
+      onClose();
+      setInitialCartStage("checkout");
+      setShowCartModal(true);
+    };
+
     if (!item) return null;
+
     return (
       <div
         className="navModalOverlay"
@@ -148,6 +190,7 @@ const Nav = () => {
             alt={item.title}
             effect="blur"
           />
+
           <h3 id="productModalTitle" className="navModalTitle">
             {item.title}
           </h3>
@@ -165,11 +208,15 @@ const Nav = () => {
           </p>
 
           <div className="modalActions">
-            <button className="navModalButton">Add to Cart</button>
+            <button className="navModalButton" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
             <button className="navModalButton" onClick={onClose}>
               Close
             </button>
-            <button className="navModalButton">Buy Now</button>
+            <button className="navModalButton" onClick={handleBuyNow}>
+              Buy Now
+            </button>
           </div>
         </div>
       </div>
@@ -191,7 +238,6 @@ const Nav = () => {
           />
           <h3 className="logoText">organix</h3>
         </div>
-
         <div
           className="menuIcon"
           onClick={toggleMobileMenu}
@@ -204,7 +250,6 @@ const Nav = () => {
           )}
         </div>
       </div>
-
       <div
         className={
           isMobileMenuOpen ? "rightContainer active" : "rightContainer"
@@ -221,7 +266,11 @@ const Nav = () => {
             "Contact Us",
             "Buy Themes!",
           ].map((item) => (
-            <a className="menuLink" href="#" key={item}>
+            <div
+              className="menuLink"
+              key={item}
+              onClick={(e) => e.preventDefault()}
+            >
               {item}
               {["Shop", "Product", "Collections", "Pages", "Blog"].includes(
                 item
@@ -251,16 +300,18 @@ const Nav = () => {
                       HOT
                     </span>
                   )}
-                  <IoIosArrowDown
-                    style={{ display: "block" }}
-                    aria-hidden="true"
-                  />
+                  <div className="navArrow">
+                    <IoIosArrowDown
+                      className="arrowDown"
+                      style={{ display: "block" }}
+                      aria-hidden="true"
+                    />
+                  </div>
                 </div>
               )}
-            </a>
+            </div>
           ))}
         </div>
-
         <div className="navBarIcons" ref={searchContainerRef}>
           <div className="searchContainer">
             <form
@@ -341,46 +392,50 @@ const Nav = () => {
               </div>
             </form>
           </div>
-
-          <div>
-            <a className="navBarIconBtn" href="#" aria-label="User account">
+          <div onClick={handleUserIconClick}>
+            <div className="navBarIconBtn" aria-label="User account">
               <BiUserCircle style={{ display: "block" }} />
-            </a>
+            </div>
           </div>
           <div
             onClick={handleWishlistClick}
             role="button"
-            aria-label={`Wishlist, ${wishlistCount} items`}
+            aria-label={`Wishlist, ${likedItems.length} items`}
           >
-            <a className="navBarIconBtn" href="#">
+            <div className="navBarIconBtn">
               <BiHeart style={{ display: "block" }} />
-              <span className="popCount">{wishlistCount}</span>
-            </a>
+              <span className="popCount">{likedItems.length}</span>
+            </div>
           </div>
           <div>
-            <a
+            <div
               className="navBarIconBtn"
-              href="#"
-              aria-label="Shopping bag, 0 items"
+              aria-label={`Shopping bag, ${cartItems.length} items`}
+              onClick={handleShoppingBagClick}
             >
               <BiShoppingBag style={{ display: "block" }} />
-              <span className="popCount">0</span>
-            </a>
+              <span className="popCount">{cartItems.length}</span>
+            </div>
           </div>
         </div>
       </div>
-
       {selectedProductModal && (
         <ProductDetailModal
           item={selectedProductModal}
           onClose={() => setSelectedProductModal(null)}
         />
       )}
-
       {showNotFoundMessage && (
         <div className="notFoundPopup" role="alert">
           No matching product found.
         </div>
+      )}
+      {showAuthModal && <AuthModal onClose={closeAuthModal} />}
+      {showWishlistModal && (
+        <WishlistModal onClose={() => setShowWishlistModal(false)} />
+      )}
+      {showCartModal && (
+        <CartModal onClose={closeCartModal} initialStage={initialCartStage} />
       )}
     </div>
   );

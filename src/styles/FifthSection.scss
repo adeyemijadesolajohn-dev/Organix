@@ -17,7 +17,7 @@
     justify-content: center;
     gap: 7px;
     transition: all 0.35s ease-in-out;
-    padding-left: 200px;
+    padding-left: 0px;
 
     .fifthSectionText {
       display: flex;
@@ -29,9 +29,9 @@
       transition: all 0.35s ease-in-out;
 
       .fifthSectionTextTitle {
-        font-size: 55px;
+        font-size: 70px;
         font-weight: 555;
-        width: 555px;
+        width: 700px;
         color: yellowgreen;
         transition: all 0.35s ease-in-out;
       }
@@ -91,8 +91,8 @@
     }
 
     .pomidor {
-      width: 88%;
-      height: 88%;
+      width: 120%;
+      height: 120%;
       object-fit: contain;
       position: relative;
       transform: translate(13.5%, 0%);

@@ -192,6 +192,7 @@ import brushStrokeLowRes from "../assets/resized/Pink-Brush-Stroke-Transparent-F
 import leavesBlowing from "../assets/Lovepik_com-400664337-green-leaf.png";
 import leavesBlowingLowRes from "../assets/resized/Lovepik_com-400664337-green-leaf.png";
 import greenBg from "../assets/[GetPaidStock.com]-684976479ed9b.jpg";
+import organicFood from "../assets/fresh-vegetables-food.jpg";
 
 export const images = {
   deck,
@@ -388,4 +389,5 @@ export const images = {
   leavesBlowing,
   leavesBlowingLowRes,
   greenBg,
+  organicFood,
 };

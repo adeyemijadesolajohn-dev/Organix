@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "../styles/ItemCard.scss";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import StarRating from "./StarRating";
 import ModalCard from "./ModalCard";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useLikes } from "../context/LikeContext";
+import { useCart } from "../context/CartContext";
 
 const ItemCard = ({
   id,
@@ -15,35 +17,43 @@ const ItemCard = ({
   description,
   discount,
   original,
+  onOpenCartModal,
+  onOpenCheckoutModal,
 }) => {
-  const [likedItems, setLikedItems] = useState([]);
-
-  const handleLike = (id) => {
-    if (likedItems.includes(id)) {
-      setLikedItems(likedItems.filter((item) => item !== id));
-    } else {
-      setLikedItems([...likedItems, id]);
-    }
-  };
-
+  const { likedItems, toggleLike } = useLikes();
   const [showModal, setShowModal] = useState(false);
+  const { addToCart } = useCart();
 
-  const handleClose = () => setShowModal(false);
+  const handleAddToCart = useCallback(
+    (item) => {
+      addToCart(item);
+      setShowModal(false);
+      onOpenCartModal();
+    },
+    [addToCart, onOpenCartModal]
+  );
+
+  const handleBuyNow = useCallback(
+    (item) => {
+      addToCart(item);
+      setShowModal(false);
+      onOpenCheckoutModal();
+    },
+    [addToCart, onOpenCheckoutModal]
+  );
 
   return (
     <>
       <div className="itemCardContainer">
         <span
           className="itemCardStatus"
-          style={{
-            backgroundColor: `${left === "New" ? "yellowgreen" : "red"}`,
-          }}
+          style={{ backgroundColor: left === "New" ? "yellowgreen" : "red" }}
         >
           {left}
         </span>
         <button
           type="button"
-          onClick={() => handleLike(id)}
+          onClick={() => toggleLike(id)}
           className="itemCardHeart"
         >
           {likedItems.includes(id) ? <FaHeart /> : <FaRegHeart />}
@@ -60,17 +70,14 @@ const ItemCard = ({
             className="itemCardImg"
           />
         </div>
-
         <div className="itemCardContent">
           <h4 className="itemCardTitle">{title}</h4>
-
           <div className="itemCardBottom">
-            <StarRating />
-
+            <StarRating id={id} />
             <div className="itemCardPrice">
               <p
                 className="itemCardDiscount"
-                style={{ color: `${original === null ? "gold" : "red"}` }}
+                style={{ color: original === null ? "gold" : "red" }}
               >
                 {discount}
               </p>
@@ -79,10 +86,8 @@ const ItemCard = ({
           </div>
         </div>
       </div>
-
       {showModal && (
         <ModalCard
-          key={id}
           id={id}
           left={left}
           category={category}
@@ -91,9 +96,9 @@ const ItemCard = ({
           description={description}
           discount={discount}
           original={original}
-          handleClose={handleClose}
-          likedItems={likedItems}
-          handleLike={handleLike}
+          handleClose={() => setShowModal(false)}
+          onAddToCart={handleAddToCart}
+          onBuyNow={handleBuyNow}
         />
       )}
     </>

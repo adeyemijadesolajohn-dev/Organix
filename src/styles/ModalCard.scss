@@ -1,4 +1,4 @@
-.modalCard {
+.itemModalCard {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@
   z-index: 999999999999999;
   transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
 
-  .modalContent {
+  .itemModalContent {
     background-color: white;
     height: fit-content;
     max-width: 350px;
@@ -27,7 +27,7 @@
     border: 2px outset lightgray;
     transition: transform 0.7s ease-in-out;
 
-    .modalHeart {
+    .itemModalHeart {
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
       position: absolute;
       top: 0px;
@@ -51,7 +51,7 @@
       }
     }
 
-    .modalClose {
+    .itemModalClose {
       position: absolute;
       color: var(--primary-color);
       top: 0px;
@@ -135,7 +135,7 @@
       }
     }
 
-    .modalCardImage {
+    .itemModalCardImage {
       width: 100%;
       height: 200px;
       border-radius: 7px;
@@ -147,7 +147,7 @@
       background-color: whitesmoke;
       transition: all 0.35s ease-in-out;
 
-      .modalImage {
+      .itemModalImage {
         display: block;
         width: 100%;
         height: 100%;
@@ -163,7 +163,7 @@
       }
     }
 
-    .modalCardContent {
+    .itemModalCardContent {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -172,7 +172,7 @@
       padding: 20px;
       transition: all 0.35s ease-in-out;
 
-      .modalCardTitle {
+      .itemModalCardTitle {
         font-size: 15px;
         font-weight: bolder;
         color: var(--primary-color);
@@ -180,13 +180,13 @@
         transition: all 0.35s ease-in-out;
       }
 
-      .modalCardDescription {
+      .itemModalCardDescription {
         font-size: 12px;
         color: #999;
         transition: all 0.35s ease-in-out;
       }
 
-      .modalCardBottom {
+      .itemModalCardBottom {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -195,7 +195,7 @@
         height: 100%;
         transition: all 0.35s ease-in-out;
 
-        .modalCardPrice {
+        .itemModalCardPrice {
           font-size: 17px;
           font-weight: 555;
           display: flex;
@@ -203,14 +203,14 @@
           gap: 7px;
           transition: all 0.35s ease-in-out;
 
-          .modalCardOriginal {
+          .itemModalCardOriginal {
             text-decoration: line-through;
             color: #999;
             transition: all 0.35s ease-in-out;
           }
         }
 
-        .modalCardStatus {
+        .itemModalCardStatus {
           color: white;
           font-size: 12px;
           padding: 3px 10px;
@@ -218,7 +218,7 @@
           transition: all 0.35s ease-in-out;
         }
 
-        .modalCardButton {
+        .itemModalCardButton {
           display: flex;
           width: 222px;
           align-items: center;
@@ -226,7 +226,7 @@
           gap: 13.5px;
           transition: all 0.35s ease-in-out;
 
-          .modalButton {
+          .itemModalButton {
             border: none;
             background-color: var(--primary-color);
             outline: none;

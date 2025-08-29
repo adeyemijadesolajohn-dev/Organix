@@ -1,26 +1,43 @@
 import React, { useState, useEffect } from "react";
 import "../styles/CountDown.scss";
 
-const CountDown = () => {
-  const endDate = new Date("January 1, 2030 00:00:00").getTime();
-
+const CountDown = ({ endDate }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
     minutes: "00",
     seconds: "00",
   });
+  const [currentEndDate, setCurrentEndDate] = useState(endDate);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    // Function to calculate and update the time left
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
-      const difference = endDate - now;
+      const difference = new Date(currentEndDate).getTime() - now;
 
       if (difference < 0) {
-        // If the countdown is over
-        clearInterval(interval); // Stop the interval
-        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+        if (!isPaused) {
+          setIsPaused(true);
+          const newPauseDate = new Date(
+            now + 1000 * 60 * 60 * 24
+          ).toISOString();
+          setCurrentEndDate(newPauseDate);
+          setTimeLeft({
+            days: "00",
+            hours: "00",
+            minutes: "00",
+            seconds: "00",
+          });
+        } else {
+          setIsPaused(false);
+          const newRandomEndDate = new Date(
+            now +
+              Math.random() * (1000 * 60 * 60 * 24 * 30) +
+              1000 * 60 * 60 * 24 * 5
+          ).toISOString();
+          setCurrentEndDate(newRandomEndDate);
+        }
         return;
       }
 
@@ -34,7 +51,6 @@ const CountDown = () => {
       const timeMinutes = Math.floor((difference % hours) / minutes);
       const timeSeconds = Math.floor((difference % minutes) / seconds);
 
-      // Pad with leading zeros
       const formatNumber = (num) => (num < 10 ? "0" + num : num.toString());
 
       setTimeLeft({
@@ -45,15 +61,12 @@ const CountDown = () => {
       });
     };
 
-    // Call it once immediately to set the initial values
     calculateTimeLeft();
 
-    // Set up the interval
     const interval = setInterval(calculateTimeLeft, 1000);
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
-  }, [endDate]); // Re-run effect if endDate changes
+  }, [currentEndDate, isPaused]);
 
   return (
     <div className="countdown">

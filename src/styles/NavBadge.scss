@@ -4,6 +4,7 @@
   background-color: white;
   white-space: nowrap;
   position: relative;
+  cursor: initial;
   transition: all 0.35s ease-in-out;
 
   &::before {
@@ -39,6 +40,7 @@
 
   .logosSlide {
     display: inline-block;
+    cursor: initial;
     animation: slide 13.5s linear infinite;
     transition: all 0.35s ease-in-out;
 
@@ -51,9 +53,15 @@
       transition: all 0.35s ease-in-out;
 
       .logoSlideItem {
+        cursor: initial;
         display: flex;
         gap: 7px;
         transition: all 0.35s ease-in-out;
+
+        &:hover {
+          color: var(--secondary-color);
+          transition: all 0.35s ease-in-out;
+        }
       }
     }
   }

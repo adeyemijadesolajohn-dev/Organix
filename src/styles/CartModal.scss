@@ -1,0 +1,509 @@
+$background-color: #f7fcf5;
+$modal-background: #ffffff;
+$border-color: #e0e0e0;
+$text-color: #333333;
+$light-text-color: #777777;
+$error-color: #e42e2e;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000000000000000;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.35s ease-in-out;
+}
+
+.modalContent {
+  background-color: $modal-background;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  max-width: 900px;
+  width: 90%;
+  position: relative;
+  animation: fadeIn 0.35s ease-out;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s ease-in-out;
+}
+
+.closeModalButton {
+  position: absolute;
+  color: var(--primary-color);
+  top: 7px;
+  right: 7px;
+  margin: 7px;
+  padding: 0;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  font-size: 35px;
+  font-weight: bolder;
+  background-color: unset;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: all 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1111111111111111111;
+  transition: all 0.35s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+    color: #f4ad16;
+    transform: scale(1.23);
+    z-index: 9999;
+    transition: all 0.35s ease-in-out;
+
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes rotating {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.modalTitle {
+  font-size: 35px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+  transition: all 0.35s ease-in-out;
+}
+
+.emptyCartMessage {
+  text-align: center;
+  color: $light-text-color;
+  font-size: 13.5px;
+  padding: 35px 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartTotal {
+  font-size: 20px;
+  font-weight: 700;
+  color: $text-color;
+  text-align: right;
+  margin: 20px 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 35vh;
+  overflow-y: auto;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 13.5px;
+  border-bottom: 2px solid $border-color;
+  padding-bottom: 13.5px;
+  margin-bottom: 13.5px;
+  transition: all 0.35s ease-in-out;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.cartItemImage {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 7px;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartItemDetails {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartItemTitle {
+  font-size: 13.5px;
+  font-weight: 500;
+  margin: 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartItemPrice {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin: 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.cartItemQuantity {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 7px;
+  transition: all 0.35s ease-in-out;
+
+  span {
+    font-weight: 500;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.quantityButton {
+  background-color: $background-color;
+  border: 2px solid $border-color;
+  color: var(--primary-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+.removeItemButton {
+  background: none;
+  border: none;
+  color: $error-color;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 12px;
+  transition: all 0.35s ease-in-out;
+}
+
+.checkoutButton,
+.payButton,
+.finishButton {
+  flex: 1;
+  padding: 7px 13.5px;
+  border: none;
+  border-radius: 7px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: white;
+  background-color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3.5px 13.5px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  &:disabled {
+    background-color: $light-text-color;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    transition: none;
+  }
+}
+
+.backButton {
+  flex: 1;
+  padding: 7px 13.5px;
+  border: 2px solid var(--primary-color);
+  border-radius: 7px;
+  background: none;
+  color: var(--primary-color);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 13.5px;
+  transition: all 0.35s ease-in-out;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 12px;
+  transition: all 0.35s ease-in-out;
+}
+
+.formLabel {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  color: $light-text-color;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid $border-color;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: $background-color;
+  color: $text-color;
+  transition: all 0.35s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+    transition: all 0.35s ease-in-out;
+  }
+
+  &.filled,
+  &:focus {
+    & + .formLabel {
+      top: -10px;
+      left: 10px;
+      font-size: 7px;
+      color: var(--primary-color);
+      background-color: $modal-background;
+      padding: 0 7px;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &.invalid {
+    border-color: $error-color;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.errorText {
+  color: $error-color;
+  font-size: 7px;
+  margin-top: 3.5px;
+  display: block;
+  transition: all 0.35s ease-in-out;
+}
+
+.paymentMethod {
+  h3 {
+    font-size: 20px;
+    color: $text-color;
+    margin-bottom: 7px;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.radioGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+  gap: 7px;
+  transition: all 0.35s ease-in-out;
+
+  input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:checked {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      transition: all 0.35s ease-in-out;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 7px;
+        height: 7px;
+        background: white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+
+  label {
+    cursor: pointer;
+    color: $text-color;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.successIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 0;
+  transition: all 0.35s ease-in-out;
+}
+
+.checkmark-wrapper {
+  width: 70px;
+  height: 70px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.35s ease-in-out;
+}
+
+.checkmark-icon {
+  color: white;
+  font-size: 35px;
+  animation: bounce 0.7s ease-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.successMessage {
+  text-align: center;
+  font-size: 13.5px;
+  color: $light-text-color;
+  margin-bottom: 13.5px;
+  line-height: 1.6;
+  transition: all 0.35s ease-in-out;
+}
+
+.successAddress {
+  text-align: center;
+  font-size: 12px;
+  color: $text-color;
+  margin-top: 0;
+  line-height: 1.5;
+  transition: all 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

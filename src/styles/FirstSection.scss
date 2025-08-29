@@ -43,20 +43,20 @@
     align-items: center;
     position: absolute;
     bottom: 35px;
-    left: -70px;
+    left: -135px;
     width: 100%;
     transition: all 0.35s ease-in-out;
 
     .vegetables {
-      height: 888px;
+      height: 1200px;
       margin-bottom: -35px;
       transition: all 0.35s ease-in-out;
     }
 
     .backgroundText {
       text-align: left;
-      margin-left: -350px;
-      margin-bottom: 35px;
+      margin-left: -500px;
+      margin-bottom: 20px;
       transition: all 0.35s ease-in-out;
 
       .welcome {
@@ -108,9 +108,9 @@
 
   .stamp {
     position: absolute;
-    bottom: 300px;
+    bottom: 350px;
     left: 0;
-    width: 500px;
+    width: 555px;
     transition: all 0.35s ease-in-out;
   }
 }

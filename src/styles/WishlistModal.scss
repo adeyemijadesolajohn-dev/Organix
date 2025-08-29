@@ -1,0 +1,261 @@
+$text-color: #333;
+$background-color: #f7f7f7;
+$border-color: #ddd;
+$modal-bg-color: #fff;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-styles {
+  padding: 7px 20px;
+  border: 2px solid $border-color;
+  border-radius: 7px;
+  background-color: $modal-bg-color;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  @include flex-center;
+  z-index: 100000000;
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+.modal-content {
+  background-color: $modal-bg-color;
+  padding: 35px;
+  border-radius: 13.5px;
+  box-shadow: $shadow;
+  max-width: 700px;
+  width: 90%;
+  position: relative;
+  animation: slideUp 0.35s ease-out forwards;
+  transition: all 0.35s ease-in-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid $border-color;
+  padding-bottom: 13.5px;
+  margin-bottom: 13.5px;
+  transition: all 0.35s ease-in-out;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.close-button {
+  position: absolute;
+  color: var(--primary-color);
+  top: 7px;
+  right: 7px;
+  margin: 7px;
+  padding: 0;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  font-size: 35px;
+  font-weight: bolder;
+  background-color: unset;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: all 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1111111111111111111;
+  transition: all 0.35s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+    color: #f4ad16;
+    transform: scale(1.23);
+    z-index: 9999;
+    transition: all 0.35s ease-in-out;
+
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes rotating {
+      from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes rotating {
+      from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.modal-body {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 13.5px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--secondary-color);
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 13.5px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: lighten($background-color, 12%);
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  gap: 13.5px;
+  padding: 12px 0;
+  border-bottom: 2px solid $border-color;
+  transition: all 0.35s ease-in-out;
+
+  &:last-child {
+    border-bottom: none;
+    transition: all 0.35s ease-in-out;
+  }
+
+  img {
+    width: 77px;
+    height: 77px;
+    object-fit: contain;
+    border-radius: 7px;
+    transition: all 0.35s ease-in-out;
+  }
+
+  .item-details {
+    flex-grow: 1;
+    transition: all 0.35s ease-in-out;
+
+    h3 {
+      font-size: 13.5px;
+      color: $text-color;
+      margin: 0 0 7px;
+      transition: all 0.35s ease-in-out;
+    }
+
+    p {
+      font-size: 12px;
+      color: var(--primary-color);
+      font-weight: bold;
+      margin: 0;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+
+  .remove-button {
+    @include button-styles;
+    border-color: #e42e2e;
+    color: #e42e2e;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #e42e2e;
+      color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+.empty-wishlist-message {
+  text-align: center;
+  color: #888;
+  font-size: 13.5px;
+  margin-top: 20px;
+  transition: all 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

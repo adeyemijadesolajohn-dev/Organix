@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 35px 70px 20px;
+  padding: 35px 135px 20px;
   width: 100vw;
   height: fit-content;
   background-color: white;
@@ -105,7 +105,7 @@
     .cardContainer {
       display: grid;
       width: 88%;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 55px;
       transition: all 0.35s ease-in-out;
     }

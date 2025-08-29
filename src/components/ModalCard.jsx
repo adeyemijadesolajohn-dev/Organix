@@ -5,6 +5,8 @@ import { HiMiniXMark } from "react-icons/hi2";
 import StarRating from "./StarRating";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useLikes } from "../context/LikeContext";
+import { useCart } from "../context/CartContext";
 
 const ModalCard = ({
   id,
@@ -16,25 +18,44 @@ const ModalCard = ({
   discount,
   original,
   handleClose,
-  handleLike,
-  likedItems,
+  onAddToCart,
+  onBuyNow,
 }) => {
+  const { likedItems, toggleLike } = useLikes();
+  const { addToCart } = useCart();
+
+  const handleAddToCartClick = () => {
+    onAddToCart({
+      id,
+      category,
+      image,
+      title,
+      description,
+      discount,
+      original,
+    });
+  };
+
+  const handleBuyNowClick = () => {
+    onBuyNow({ id, category, image, title, description, discount, original });
+  };
+
   return (
-    <div className="modalCard">
-      <div key={id} className="modalContent">
+    <div className="itemModalCard">
+      <div key={id} className="itemModalContent">
         <button
           type="button"
-          onClick={() => handleLike(id)}
-          className="modalHeart"
+          onClick={() => toggleLike(id)}
+          className="itemModalHeart"
         >
           {likedItems.includes(id) ? <FaHeart /> : <FaRegHeart />}
         </button>
 
-        <button type="button" className="modalClose">
-          <HiMiniXMark onClick={() => handleClose()} />
+        <button type="button" className="itemModalClose">
+          <HiMiniXMark onClick={handleClose} />
         </button>
 
-        <div className="modalCardImage">
+        <div className="itemModalCardImage">
           <LazyLoadImage
             src={image}
             alt={title || "Product image"}
@@ -42,43 +63,46 @@ const ModalCard = ({
             draggable="false"
             width="auto"
             height="100%"
-            className="modalImage"
+            className="itemModalImage"
           />
         </div>
 
-        <div className="modalCardContent">
-          <h4 className="modalCardTitle">{title}</h4>
+        <div className="itemModalCardContent">
+          <h4 className="itemModalCardTitle">{title}</h4>
+          <p className="itemModalCardDescription">{description}</p>
 
-          <p className="modalCardDescription">{description}</p>
-
-          <div className="modalCardBottom">
-            <StarRating />
-
-            <div className="modalCardPrice">
+          <div className="itemModalCardBottom">
+            <StarRating id={id} />
+            <div className="itemModalCardPrice">
               <p
-                className="modalCardDiscount"
-                style={{ color: `${original === null ? "gold" : "red"}` }}
+                className="itemModalCardDiscount"
+                style={{ color: original === null ? "gold" : "red" }}
               >
                 {discount}
               </p>
-              <p className="modalCardOriginal">{original}</p>
+              <p className="itemModalCardOriginal">{original}</p>
             </div>
-
             <span
-              className="modalCardStatus"
+              className="itemModalCardStatus"
               style={{
-                backgroundColor: `${left === "New" ? "yellowgreen" : "red"}`,
+                backgroundColor: left === "New" ? "yellowgreen" : "red",
               }}
             >
               {left}
             </span>
-
-            <div className="modalCardButton">
-              <button type="button" className="modalButton">
+            <div className="itemModalCardButton">
+              <button
+                type="button"
+                className="itemModalButton"
+                onClick={handleAddToCartClick}
+              >
                 Add to Cart
               </button>
-
-              <button type="button" className="modalButton">
+              <button
+                type="button"
+                className="itemModalButton"
+                onClick={handleBuyNowClick}
+              >
                 Buy Now
               </button>
             </div>

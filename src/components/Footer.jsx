@@ -148,13 +148,44 @@ const Footer = () => {
             </p>
           </div>
 
+          {/* Add anchor tags with href for social media icons */}
           <div className="lowerFooterSocials">
             <div className="lowerFooterSocialsIcons">
-              <PiXLogoBold className="lowerFooterSocialsIconsIcon" />
-              <LuFacebook className="lowerFooterSocialsIconsIcon" />
-              <GrInstagram className="lowerFooterSocialsIconsIcon" />
-              <FiYoutube className="lowerFooterSocialsIconsIcon" />
-              <PiTiktokLogoBold className="lowerFooterSocialsIconsIcon" />
+              <a
+                href="https://x.com/CrownJohnn29487"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <PiXLogoBold className="lowerFooterSocialsIconsIcon" />
+              </a>
+              <a
+                href="https://www.facebook.com/ajohnnie"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LuFacebook className="lowerFooterSocialsIconsIcon" />
+              </a>
+              <a
+                href="https://www.instagram.com/john.doe47500/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GrInstagram className="lowerFooterSocialsIconsIcon" />
+              </a>
+              <a
+                href="https://www.youtube.com/@johnnycrown5097"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiYoutube className="lowerFooterSocialsIconsIcon" />
+              </a>
+              <a
+                href="https://www.tiktok.com/explore"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <PiTiktokLogoBold className="lowerFooterSocialsIconsIcon" />
+              </a>
             </div>
           </div>
 
