@@ -10,7 +10,7 @@ import {
 } from "react-icons/lu";
 import { CgMoreVertical } from "react-icons/cg";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
-import CartModal from "./CartModal"; // Import CartModal
+import CartModal from "./CartModal";
 
 const SixthSection = () => {
   const itemPerPage = 10;
@@ -87,11 +87,6 @@ const SixthSection = () => {
     setShowCartModal(true);
   }, []);
 
-  const handleOpenCheckoutModal = useCallback(() => {
-    setInitialCartStage("checkout");
-    setShowCartModal(true);
-  }, []);
-
   const closeCartModal = useCallback(() => {
     setShowCartModal(false);
   }, []);
@@ -101,7 +96,9 @@ const SixthSection = () => {
       <div className="sixthSectionContent">
         <div className="sixthSectionHeader">
           <p className="sixthSectionTitle">~Special Products~</p>
+
           <h2 className="sixthSectionSubTitle">Weekly Food Offers</h2>
+
           <p className="sixthSectionText">
             We offer a wide range of organic products, including fruits,
             vegetables, dairy, and grains. All our products are sourced from
@@ -109,6 +106,7 @@ const SixthSection = () => {
             ensuring that you receive the freshest and healthiest food possible.
           </p>
         </div>
+
         <div className="sixthSectionIcons">
           <div className="sixthSectionIcon" ref={dropdownRef}>
             <button
@@ -118,6 +116,7 @@ const SixthSection = () => {
             >
               <LuFilter className="buttonIcon" />
             </button>
+
             {open && (
               <div className="dropdown">
                 <select
@@ -128,6 +127,7 @@ const SixthSection = () => {
                   <option className="dropdownOption" value="All">
                     All Products
                   </option>
+
                   {[...new Set(Produce.map((item) => item.category))].map(
                     (category) => (
                       <option
@@ -143,6 +143,7 @@ const SixthSection = () => {
               </div>
             )}
           </div>
+
           <div className="sixthSectionIcon">
             <button
               className="dropdownButton"
@@ -152,12 +153,14 @@ const SixthSection = () => {
               <LuRefreshCcwDot className="buttonIcon" />
             </button>
           </div>
+
           <div className="sixthSectionIcon">
             <button className="dropdownButton" aria-label="More">
               <CgMoreVertical className="buttonIcon" />
             </button>
           </div>
         </div>
+
         <div className="cardContainer">
           {currentItems.map((item, index) => {
             return (
@@ -172,11 +175,11 @@ const SixthSection = () => {
                 discount={item.discount}
                 original={item.original}
                 onOpenCartModal={handleOpenCartModal}
-                onOpenCheckoutModal={handleOpenCheckoutModal}
               />
             );
           })}
         </div>
+
         <div className="sixthSectionPagination">
           <div className="pagination">
             <button
@@ -188,6 +191,7 @@ const SixthSection = () => {
                 <LuArrowBigLeftDash className="paginationIconFont" />
               </span>
             </button>
+
             {getPageNumbers().map((page, index) => (
               <button
                 key={index}
@@ -201,6 +205,7 @@ const SixthSection = () => {
                 {page}
               </button>
             ))}
+
             <button
               className="page"
               onClick={() => goToPage(currentPage + 1)}
@@ -212,6 +217,7 @@ const SixthSection = () => {
             </button>
           </div>
         </div>
+
         <div className="sixthSectionFooter">
           <p className="sixthSectionFooterText">
             We offer a wide range of organic products, including fruits,
@@ -219,6 +225,7 @@ const SixthSection = () => {
             local farmers who adhere to strict organic farming practices,
             ensuring that you receive the freshest and healthiest food possible.
           </p>
+
           <p className="sixthSectionFooterLinkText">
             Discover thousands of other quality products.{" "}
             <a href="#" className="sixthSectionFooterLinkPath">
@@ -227,6 +234,7 @@ const SixthSection = () => {
           </p>
         </div>
       </div>
+
       {showCartModal && (
         <CartModal onClose={closeCartModal} initialStage={initialCartStage} />
       )}

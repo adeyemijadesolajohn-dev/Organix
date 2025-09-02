@@ -22,6 +22,7 @@ const LoginModal = ({ onClose, onSwitch, onSuccess }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <h2>Welcome Back</h2>
+
         <form onSubmit={handleSubmit}>
           <FloatingInput
             label="Email"
@@ -31,6 +32,7 @@ const LoginModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={validateEmail}
             errorMessage="Invalid email format"
           />
+
           <FloatingInput
             label="Password"
             type="password"
@@ -41,8 +43,10 @@ const LoginModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={(val) => val.length >= 6}
             errorMessage="Password must be at least 6 characters"
           />
+
           <button type="submit">Login</button>
         </form>
+
         <p>
           Don’t have an account?{" "}
           <span className="link" onClick={onSwitch}>

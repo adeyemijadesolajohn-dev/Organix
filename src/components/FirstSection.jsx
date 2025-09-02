@@ -8,6 +8,7 @@ const FirstSection = () => {
   return (
     <div className="firstSection">
       <div className="whiteTable"></div>
+
       <div className="pictureFlex">
         <LazyLoadImage
           className="vegetables"
@@ -23,7 +24,9 @@ const FirstSection = () => {
 
         <div className="backgroundText">
           <p className="welcome">WELCOME TO OUR FARM</p>
+
           <h1 className="title">Fresh Bread Oatmeal Crumble.</h1>
+
           <p className="description">
             Presentation matters. Our fresh Vietnamese vegetable rolls look good
             and taste even better

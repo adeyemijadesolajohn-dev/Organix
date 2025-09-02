@@ -133,6 +133,7 @@ const Footer = () => {
               src={images.leaves}
               alt="organix logo"
             />
+
             <h3 className="lowerFooterLogoText">organix</h3>
           </div>
 
@@ -148,7 +149,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Add anchor tags with href for social media icons */}
           <div className="lowerFooterSocials">
             <div className="lowerFooterSocialsIcons">
               <a
@@ -158,6 +158,7 @@ const Footer = () => {
               >
                 <PiXLogoBold className="lowerFooterSocialsIconsIcon" />
               </a>
+
               <a
                 href="https://www.facebook.com/ajohnnie"
                 target="_blank"
@@ -165,6 +166,7 @@ const Footer = () => {
               >
                 <LuFacebook className="lowerFooterSocialsIconsIcon" />
               </a>
+
               <a
                 href="https://www.instagram.com/john.doe47500/"
                 target="_blank"
@@ -172,6 +174,7 @@ const Footer = () => {
               >
                 <GrInstagram className="lowerFooterSocialsIconsIcon" />
               </a>
+
               <a
                 href="https://www.youtube.com/@johnnycrown5097"
                 target="_blank"
@@ -179,6 +182,7 @@ const Footer = () => {
               >
                 <FiYoutube className="lowerFooterSocialsIconsIcon" />
               </a>
+
               <a
                 href="https://www.tiktok.com/explore"
                 target="_blank"

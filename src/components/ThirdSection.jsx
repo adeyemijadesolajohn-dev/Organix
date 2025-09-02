@@ -46,6 +46,7 @@ const ThirdSection = () => {
   return (
     <div className="thirdSection">
       <p className="thirdSectionTitle">~Our Products~</p>
+
       <h3 className="thirdSectionSubTitle">What's Hot Items</h3>
 
       <div className="thirdSectionMenu">
@@ -63,7 +64,9 @@ const ThirdSection = () => {
       <div className="thirdSectionSlider">
         <div className="thirdSectionSlides">
           <BiLeftArrow id="left" className="thirdSectionArrow leftArrow" />
+
           <ItemCard item={item} className="itemCard" />
+
           <BiRightArrow id="right" className="thirdSectionArrow rightArrow" />
         </div>
       </div>

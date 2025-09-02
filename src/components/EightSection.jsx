@@ -59,6 +59,7 @@ const posts = [
 const AuthorPopover = ({ name }) => (
   <div className="authorPopover">
     <img className="popAvatar" src={images.leaves} alt={name} />
+
     <span className="name">{name}</span>
   </div>
 );
@@ -69,10 +70,15 @@ const AuthorModal = ({ name, avatar, company, bio, joined, onClose }) => (
       <button className="closeBtn" onClick={onClose}>
         <MdClose />
       </button>
+
       <img className="avatar" src={avatar} alt={name} />
+
       <div className="name">{name}</div>
+
       <div className="company">{company}</div>
+
       <div className="bio">{bio}</div>
+
       <div className="joined">Joined {joined}</div>
     </div>
   </div>
@@ -103,7 +109,9 @@ const EightSection = () => {
     <div className="eightSection">
       <div className="eightSectionHeader">
         <p className="eightSectionTitle">~Read Our Blog~</p>
+
         <h2 className="eightSectionSubTitle">Our Latest Posts</h2>
+
         <p className="eightSectionDescription">
           Go through our blog and learn more about our products and our thoughts
           on the organic food industry.
@@ -137,6 +145,7 @@ const EightSection = () => {
 
             <div className="eightSectionCardContent">
               <p className="eightSectionCardTitle">{post.title}</p>
+
               <p className="eightSectionCardDescription">
                 {post.description}
                 <a href="#" className="eightSectionCardLink">
@@ -150,6 +159,7 @@ const EightSection = () => {
                   onClick={() => resetComments(post.id)}
                 >
                   <MdOutlineDateRange className="eightSectionCardDateIcon" />
+
                   <p className="eightSectionCardDateText">{post.date}</p>
                 </div>
 
@@ -160,7 +170,9 @@ const EightSection = () => {
                   onClick={() => setModalData(post)}
                 >
                   <PiUserCircleBold className="eightSectionCardAuthorIcon" />
+
                   <p className="eightSectionCardAuthorText">{post.author}</p>
+
                   {showPopoverId === post.id && (
                     <AuthorPopover name={post.author} avatar={post.avatar} />
                   )}
@@ -176,6 +188,7 @@ const EightSection = () => {
                     ) : (
                       <>
                         <MdOutlineComment className="eightSectionCardCommentIconItem" />
+
                         <span className="eightSectionCardCommentNumber">
                           {formatCount(comments[post.id])}
                         </span>

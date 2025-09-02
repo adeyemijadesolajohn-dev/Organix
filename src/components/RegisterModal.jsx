@@ -44,6 +44,7 @@ const RegisterModal = ({ onClose, onSwitch, onSuccess }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <h2>Create Your Account</h2>
+
         <form onSubmit={handleSubmit}>
           <FloatingInput
             label="Full Name"
@@ -52,6 +53,7 @@ const RegisterModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={(val) => val.length > 2}
             errorMessage="Name too short"
           />
+
           <FloatingInput
             label="Email"
             type="email"
@@ -60,6 +62,7 @@ const RegisterModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={validateEmail}
             errorMessage="Invalid email"
           />
+
           <FloatingInput
             label="Phone"
             value={phone}
@@ -67,6 +70,7 @@ const RegisterModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={validatePhone}
             errorMessage="Invalid phone format"
           />
+
           <FloatingInput
             label="Password"
             type="password"
@@ -77,6 +81,7 @@ const RegisterModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={validatePassword}
             errorMessage="Must be 8+ chars, include number & uppercase"
           />
+
           <FloatingInput
             label="Confirm Password"
             type="password"
@@ -87,8 +92,10 @@ const RegisterModal = ({ onClose, onSwitch, onSuccess }) => {
             validator={(val) => val === password}
             errorMessage="Passwords do not match"
           />
+
           <button type="submit">Register</button>
         </form>
+
         <p>
           Already have an account?{" "}
           <span className="link" onClick={onSwitch}>

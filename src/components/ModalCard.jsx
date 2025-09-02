@@ -6,7 +6,6 @@ import StarRating from "./StarRating";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useLikes } from "../context/LikeContext";
-import { useCart } from "../context/CartContext";
 
 const ModalCard = ({
   id,
@@ -22,23 +21,8 @@ const ModalCard = ({
   onBuyNow,
 }) => {
   const { likedItems, toggleLike } = useLikes();
-  const { addToCart } = useCart();
 
-  const handleAddToCartClick = () => {
-    onAddToCart({
-      id,
-      category,
-      image,
-      title,
-      description,
-      discount,
-      original,
-    });
-  };
-
-  const handleBuyNowClick = () => {
-    onBuyNow({ id, category, image, title, description, discount, original });
-  };
+  const item = { id, category, image, title, description, discount, original };
 
   return (
     <div className="itemModalCard">
@@ -69,10 +53,12 @@ const ModalCard = ({
 
         <div className="itemModalCardContent">
           <h4 className="itemModalCardTitle">{title}</h4>
+
           <p className="itemModalCardDescription">{description}</p>
 
           <div className="itemModalCardBottom">
             <StarRating id={id} />
+
             <div className="itemModalCardPrice">
               <p
                 className="itemModalCardDiscount"
@@ -80,8 +66,10 @@ const ModalCard = ({
               >
                 {discount}
               </p>
+
               <p className="itemModalCardOriginal">{original}</p>
             </div>
+
             <span
               className="itemModalCardStatus"
               style={{
@@ -90,18 +78,20 @@ const ModalCard = ({
             >
               {left}
             </span>
+
             <div className="itemModalCardButton">
               <button
                 type="button"
                 className="itemModalButton"
-                onClick={handleAddToCartClick}
+                onClick={() => onAddToCart(item)}
               >
                 Add to Cart
               </button>
+
               <button
                 type="button"
                 className="itemModalButton"
-                onClick={handleBuyNowClick}
+                onClick={() => onBuyNow(item)}
               >
                 Buy Now
               </button>

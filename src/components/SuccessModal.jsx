@@ -13,7 +13,9 @@ const SuccessModal = ({ name, onClose }) => {
             <path d="M14 27 l7 7 l17 -17" />
           </svg>
         </div>
+
         <h2>Successful Login</h2>
+
         <p>Welcome to Organix, {name}!</p>
       </div>
     </div>

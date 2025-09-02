@@ -7,6 +7,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useLikes } from "../context/LikeContext";
 import { useCart } from "../context/CartContext";
+import { useBuyNow } from "../context/BuyNowContext";
 
 const ItemCard = ({
   id,
@@ -18,11 +19,11 @@ const ItemCard = ({
   discount,
   original,
   onOpenCartModal,
-  onOpenCheckoutModal,
 }) => {
   const { likedItems, toggleLike } = useLikes();
   const [showModal, setShowModal] = useState(false);
   const { addToCart } = useCart();
+  const { buyNow } = useBuyNow();
 
   const handleAddToCart = useCallback(
     (item) => {
@@ -36,10 +37,10 @@ const ItemCard = ({
   const handleBuyNow = useCallback(
     (item) => {
       addToCart(item);
+      buyNow(item);
       setShowModal(false);
-      onOpenCheckoutModal();
     },
-    [addToCart, onOpenCheckoutModal]
+    [addToCart, buyNow]
   );
 
   return (
@@ -51,6 +52,7 @@ const ItemCard = ({
         >
           {left}
         </span>
+
         <button
           type="button"
           onClick={() => toggleLike(id)}
@@ -58,6 +60,7 @@ const ItemCard = ({
         >
           {likedItems.includes(id) ? <FaHeart /> : <FaRegHeart />}
         </button>
+
         <div className="itemCardImage">
           <LazyLoadImage
             src={image}
@@ -70,10 +73,12 @@ const ItemCard = ({
             className="itemCardImg"
           />
         </div>
+
         <div className="itemCardContent">
           <h4 className="itemCardTitle">{title}</h4>
           <div className="itemCardBottom">
             <StarRating id={id} />
+
             <div className="itemCardPrice">
               <p
                 className="itemCardDiscount"
@@ -81,11 +86,13 @@ const ItemCard = ({
               >
                 {discount}
               </p>
+
               <p className="itemCardOriginal">{original}</p>
             </div>
           </div>
         </div>
       </div>
+
       {showModal && (
         <ModalCard
           id={id}

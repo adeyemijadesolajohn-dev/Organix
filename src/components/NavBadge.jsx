@@ -31,11 +31,13 @@ const NavBadge = () => {
         <div className="logoSlideContainer">
           <div className="logoSlideItem">
             <p>Lifetime Warranty</p>
+
             <LuTreePalm />
           </div>
 
           <div className="logoSlideItem">
             <p>Easy Returns</p>
+
             <LuTreePalm />
           </div>
 
@@ -53,11 +55,13 @@ const NavBadge = () => {
         <div className="logoSlideContainer">
           <div className="logoSlideItem">
             <p>Lifetime Warranty</p>
+
             <LuTreePalm />
           </div>
 
           <div className="logoSlideItem">
             <p>Easy Returns</p>
+
             <LuTreePalm />
           </div>
 
@@ -75,11 +79,13 @@ const NavBadge = () => {
         <div className="logoSlideContainer">
           <div className="logoSlideItem">
             <p>Lifetime Warranty</p>
+
             <LuTreePalm />
           </div>
 
           <div className="logoSlideItem">
             <p>Easy Returns</p>
+
             <LuTreePalm />
           </div>
 

@@ -75,9 +75,11 @@ const Slider = ({ item }) => {
               >
                 {val.left}
               </span>
+
               <button type="button" onClick={handleClick} className="heart">
                 {like ? <FaHeart /> : <FaRegHeart />}
               </button>
+
               <div className="cardImage">
                 <img src={val.image} alt="image" draggable="false" />
               </div>
@@ -97,6 +99,7 @@ const Slider = ({ item }) => {
                     >
                       {val.discount}
                     </p>
+
                     <p className="original">{val.original}</p>
                   </div>
                 </div>

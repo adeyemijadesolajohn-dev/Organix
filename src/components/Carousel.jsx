@@ -40,9 +40,11 @@ const Carousel = ({ item }) => {
             >
               {val.left}
             </span>
+
             <button type="button" onClick={handleClick} className="heart">
               {like ? <FaHeart /> : <FaRegHeart />}
             </button>
+
             <div className="cardImage">
               <LazyLoadImage
                 alt={val.title}
@@ -74,6 +76,7 @@ const Carousel = ({ item }) => {
                 >
                   {val.discount}
                 </p>
+
                 <p className="original">{val.original}</p>
               </div>
             </div>

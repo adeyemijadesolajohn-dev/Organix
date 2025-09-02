@@ -1,0 +1,228 @@
+.buyNowModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  animation: fadeIn 0.35s ease-out;
+  transition: all 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.buyNowModalContent {
+  position: relative;
+  background-color: #fff;
+  padding: 35px;
+  border-radius: 13.5px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 3.5px 20px rgba(0, 0, 0, 0.7);
+  animation: modalPop 0.35s ease-out;
+  transition: all 0.35s ease-in-out;
+
+  .closeCartModalButton {
+    position: absolute;
+    color: var(--primary-color);
+    top: 0px;
+    right: 0px;
+    margin: 7px;
+    padding: 0;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    font-size: 50px;
+    font-weight: bolder;
+    background-color: unset;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: all 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1111111111111111111;
+    transition: all 0.35s ease-in-out;
+
+    &:hover {
+      background-color: transparent;
+      color: #f4ad16;
+      transform: scale(1.23);
+      z-index: 9999;
+      transition: all 0.35s ease-in-out;
+
+      -webkit-animation: rotating 2s linear infinite;
+      -moz-animation: rotating 2s linear infinite;
+      -ms-animation: rotating 2s linear infinite;
+      -o-animation: rotating 2s linear infinite;
+      animation: rotating 2s linear infinite;
+
+      @keyframes rotating {
+        from {
+          -ms-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        to {
+          -ms-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @-webkit-keyframes rotating {
+        from {
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        to {
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes rotating {
+        from {
+          -ms-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        to {
+          -ms-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.buyNowModalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 13.5px;
+  transition: all 0.35s ease-in-out;
+}
+
+.buyNowModalContent input,
+.buyNowModalContent select {
+  padding: 13.5x;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 13.5px;
+  transition: all 0.35s ease-in-out;
+}
+
+.buyNowModalContent button {
+  padding: 13.5px;
+  background-color: var(--primary-color, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buyNowModalContent button:hover {
+  background-color: var(--secondary-color, #388e3c);
+  transition: all 0.35s ease-in-out;
+}
+
+.successMessage {
+  text-align: center;
+  transition: all 0.35s ease-in-out;
+}
+
+.checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #4bb71b;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0 #4bb71b;
+  animation: fill 0.35s ease-in-out 0.35s forwards,
+    scale 0.2s ease-in-out 0.8s both;
+  position: relative;
+  margin: 0 auto 20px;
+  transition: all 0.35s ease-in-out;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #4bb71b;
+  fill: #fff;
+  animation: stroke 0.7s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  transition: all 0.35s ease-in-out;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.35s cubic-bezier(0.65, 0, 0.45, 1) 0.7s forwards;
+  transition: all 0.35s ease-in-out;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0 35px #4bb71b;
+  }
+}

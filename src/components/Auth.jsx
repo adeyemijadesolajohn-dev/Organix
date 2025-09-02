@@ -5,10 +5,8 @@ import { RiLockPasswordLine, RiLockPasswordFill } from "react-icons/ri";
 import { ImLocation2 } from "react-icons/im";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { images } from "../Data/Images";
-import { FaCheckCircle } from "react-icons/fa";
 import "../styles/AuthModal.scss";
 
 const AuthModal = ({ onClose }) => {
@@ -27,6 +25,9 @@ const AuthModal = ({ onClose }) => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [isConfirmPasswordFocused, setIsConfirmPasswordFocused] =
+    useState(false);
 
   const passwordInputRef = useRef(null);
   const confirmPasswordInputRef = useRef(null);
@@ -137,8 +138,20 @@ const AuthModal = ({ onClose }) => {
     toggleShow,
     error,
     icon,
+    onFocus,
+    onBlur,
+    isFocused,
+    formType,
   }) => {
     const [isTyping, setIsTyping] = useState(false);
+    const [visibleGuides, setVisibleGuides] = useState([
+      true,
+      true,
+      true,
+      true,
+      true,
+    ]);
+    const timers = useRef([null, null, null, null, null]);
     const inputRef = useRef(null);
 
     const isLengthValid = value.length >= 8 && value.length <= 20;
@@ -163,6 +176,41 @@ const AuthModal = ({ onClose }) => {
       return () => clearTimeout(timeout);
     }, [isTyping, value]);
 
+    useEffect(() => {
+      guides.forEach((guide, index) => {
+        if (guide.valid) {
+          if (visibleGuides[index] && !timers.current[index]) {
+            timers.current[index] = setTimeout(() => {
+              setVisibleGuides((prev) => {
+                const newVisible = [...prev];
+                newVisible[index] = false;
+                return newVisible;
+              });
+              timers.current[index] = null;
+            }, 2000);
+          }
+        } else {
+          if (timers.current[index]) {
+            clearTimeout(timers.current[index]);
+            timers.current[index] = null;
+          }
+          if (!visibleGuides[index]) {
+            setVisibleGuides((prev) => {
+              const newVisible = [...prev];
+              newVisible[index] = true;
+              return newVisible;
+            });
+          }
+        }
+      });
+
+      return () => {
+        timers.current.forEach((timer) => {
+          if (timer) clearTimeout(timer);
+        });
+      };
+    }, [value, visibleGuides]);
+
     return (
       <div className={`inputGroup ${error ? "hasError" : ""}`}>
         <input
@@ -176,37 +224,60 @@ const AuthModal = ({ onClose }) => {
           }}
           onFocus={() => {
             setIsTyping(true);
+            onFocus();
           }}
           onBlur={() => {
             setIsTyping(false);
+            onBlur();
             validate();
           }}
           className={value.trim() !== "" ? "hasContent" : ""}
           autoComplete="off"
           ref={inputRef}
         />
+
         <label htmlFor={name} className="floatingLabel">
           {label}
         </label>
+
         {icon && <div className="inputIcon">{icon}</div>}
+
         <span className="icon-wrapper" onClick={toggleShow}>
           {show ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
         </span>
+
         {isSubmitted && error && <span className="errorMessage">{error}</span>}
-        {!isLogin && name === "password" && (
+
+        {!isLogin && name === "password" && isFocused && (
           <div className="passwordGuide">
-            {guides.map((guide, index) => (
-              <motion.small
-                key={index}
-                className={guide.valid ? "valid" : isSubmitted ? "invalid" : ""}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-              >
-                {guide.valid && <span className="checkmark-icon">✓</span>}
-                {guide.text}
-              </motion.small>
-            ))}
+            <AnimatePresence>
+              {guides.map((guide, index) =>
+                visibleGuides[index] ? (
+                  <motion.small
+                    key={index}
+                    className={
+                      guide.valid ? "valid" : isSubmitted ? "invalid" : ""
+                    }
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                  >
+                    {guide.valid && (
+                      <motion.span
+                        className="checkmark-icon"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        ✓
+                      </motion.span>
+                    )}
+
+                    {guide.text}
+                  </motion.small>
+                ) : null
+              )}
+            </AnimatePresence>
           </div>
         )}
       </div>
@@ -237,10 +308,13 @@ const AuthModal = ({ onClose }) => {
           autoComplete="off"
           ref={inputRef}
         />
+
         <label htmlFor={name} className="floatingLabel">
           {label}
         </label>
+
         {icon && <div className="inputIcon">{icon}</div>}
+
         {isSubmitted && error && <span className="errorMessage">{error}</span>}
       </div>
     );
@@ -249,16 +323,6 @@ const AuthModal = ({ onClose }) => {
   const handleSelectChange = (e) => {
     const { name, value } = e.target;
     setRegisterData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const transitionVariants = {
-    initial: {
-      opacity: 0,
-      x: isLogin ? 100 : -100,
-      rotateY: isLogin ? 10 : -10,
-    },
-    animate: { opacity: 1, x: 0, rotateY: 0 },
-    exit: { opacity: 0, x: isLogin ? -100 : 100, rotateY: isLogin ? -10 : 10 },
   };
 
   const renderContent = () => {
@@ -284,96 +348,27 @@ const AuthModal = ({ onClose }) => {
               r="25"
               fill="none"
             />
+
             <path
               className="checkmark__check"
               fill="none"
               d="M14.1 27.2l7.1 7.2 16.7-16.8"
             />
           </svg>
+
           <h2 className="successTitle">Welcome, {name}!</h2>
+
           <p className="successText">Login successful.</p>
         </motion.div>
       );
     }
 
-    if (isLogin) {
-      return (
-        <motion.div
-          key="login"
-          variants={transitionVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-          className="authForm"
-        >
-          <div className="modalHeader">
-            <h2>Login to Organix</h2>
-            <p>
-              Don't have an account?{" "}
-              <span
-                className="link"
-                onClick={() => setIsLogin(false)}
-                role="button"
-              >
-                Register
-              </span>
-            </p>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <FormInput
-              name="email"
-              label="Email Address"
-              value={loginData.email}
-              onChange={handleInputChange}
-              formType="login"
-              error={errors.email}
-              type="email"
-              icon={<BiEnvelope style={{ display: "block" }} />}
-            />
-            <PasswordInput
-              name="password"
-              label="Password"
-              value={loginData.password}
-              onChange={(e) => handleInputChange(e, "login")}
-              show={showPassword}
-              toggleShow={() => setShowPassword(!showPassword)}
-              error={errors.password}
-              ref={passwordInputRef}
-              icon={<RiLockPasswordLine style={{ display: "block" }} />}
-            />
-            <button type="submit" className="submitBtn">
-              Sign In
-            </button>
-          </form>
-          <div className="separator">
-            <span>OR</span>
-          </div>
-          <div className="socialLogin">
-            <button className="socialBtn google">
-              <FaGoogle style={{ display: "block" }} className="socialIcon" />{" "}
-              Sign in with Google
-            </button>
-            <button className="socialBtn apple">
-              <FaApple style={{ display: "block" }} className="socialIcon" />{" "}
-              Sign in with Apple
-            </button>
-          </div>
-        </motion.div>
-      );
-    } else {
-      return (
-        <motion.div
-          key="register"
-          variants={transitionVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-          className="authForm"
-        >
+    return (
+      <div className="authFormsContainer">
+        <div className="authForm registerForm">
           <div className="modalHeader">
             <h2>Create an Account</h2>
+
             <p>
               Already have an account?{" "}
               <span
@@ -385,6 +380,7 @@ const AuthModal = ({ onClose }) => {
               </span>
             </p>
           </div>
+
           <form onSubmit={handleSubmit}>
             <FormInput
               name="name"
@@ -395,6 +391,7 @@ const AuthModal = ({ onClose }) => {
               error={errors.name}
               icon={<BiUser style={{ display: "block" }} />}
             />
+
             <FormInput
               name="email"
               label="Email Address"
@@ -405,6 +402,7 @@ const AuthModal = ({ onClose }) => {
               type="email"
               icon={<BiEnvelope style={{ display: "block" }} />}
             />
+
             <PasswordInput
               name="password"
               label="Password"
@@ -415,7 +413,11 @@ const AuthModal = ({ onClose }) => {
               error={errors.password}
               ref={passwordInputRef}
               icon={<RiLockPasswordLine style={{ display: "block" }} />}
+              onFocus={() => setIsPasswordFocused(true)}
+              onBlur={() => setIsPasswordFocused(false)}
+              isFocused={isPasswordFocused}
             />
+
             <PasswordInput
               name="confirmPassword"
               label="Confirm Password"
@@ -426,7 +428,11 @@ const AuthModal = ({ onClose }) => {
               error={errors.confirmPassword}
               ref={confirmPasswordInputRef}
               icon={<RiLockPasswordFill style={{ display: "block" }} />}
+              onFocus={() => setIsConfirmPasswordFocused(true)}
+              onBlur={() => setIsConfirmPasswordFocused(false)}
+              isFocused={isConfirmPasswordFocused}
             />
+
             <FormInput
               name="phoneNumber"
               label="Phone Number"
@@ -437,6 +443,7 @@ const AuthModal = ({ onClose }) => {
               type="tel"
               icon={<BiPhone style={{ display: "block" }} />}
             />
+
             <div className={`inputGroup ${errors.country ? "hasError" : ""}`}>
               <select
                 name="country"
@@ -446,40 +453,124 @@ const AuthModal = ({ onClose }) => {
                 onBlur={validate}
                 className={registerData.country !== "" ? "hasContent" : ""}
               >
-                <option value="" disabled>
+                <option value="" disabled hidden></option>
+
+                <option
+                  value=""
+                  disabled
+                  style={{
+                    textDecoration: "underline",
+                    color: "grey",
+                    fontStyle: "italic",
+                  }}
+                >
                   Select a Country
                 </option>
+
                 <option value="USA">United States</option>
+
                 <option value="UK">United Kingdom</option>
+
                 <option value="NG">Nigeria</option>
               </select>
+
               <label htmlFor="country" className="floatingLabel selectLabel">
                 Country
               </label>
+
               <div className="inputIcon">
                 <ImLocation2 style={{ display: "block" }} />
               </div>
+
               {isSubmitted && errors.country && (
                 <span className="errorMessage">{errors.country}</span>
               )}
             </div>
+
             <button type="submit" className="submitBtn">
               Sign Up
             </button>
           </form>
+
           <div className="socialLogin">
             <button className="socialBtn google">
               <FaGoogle style={{ display: "block" }} className="socialIcon" />{" "}
               Sign up with Google
             </button>
+
             <button className="socialBtn apple">
               <FaApple style={{ display: "block" }} className="socialIcon" />
               Sign up with Apple
             </button>
           </div>
-        </motion.div>
-      );
-    }
+        </div>
+
+        <div className="authForm loginForm">
+          <div className="modalHeader">
+            <h2>Login to Organix</h2>
+
+            <p>
+              Don't have an account?{" "}
+              <span
+                className="link"
+                onClick={() => setIsLogin(false)}
+                role="button"
+              >
+                Register
+              </span>
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <FormInput
+              name="email"
+              label="Email Address"
+              value={loginData.email}
+              onChange={handleInputChange}
+              formType="login"
+              error={errors.email}
+              type="email"
+              icon={<BiEnvelope style={{ display: "block" }} />}
+            />
+
+            <PasswordInput
+              name="password"
+              label="Password"
+              value={loginData.password}
+              onChange={(e) => handleInputChange(e, "login")}
+              show={showPassword}
+              toggleShow={() => setShowPassword(!showPassword)}
+              error={errors.password}
+              ref={passwordInputRef}
+              icon={<RiLockPasswordLine style={{ display: "block" }} />}
+              onFocus={() => setIsPasswordFocused(true)}
+              onBlur={() => setIsPasswordFocused(false)}
+              isFocused={isPasswordFocused}
+            />
+
+            <button type="submit" className="submitBtn">
+              Sign In
+            </button>
+          </form>
+
+          <div className="separator">
+            <span>OR</span>
+          </div>
+
+          <div className="socialLogin">
+            <button className="socialBtn google">
+              <FaGoogle style={{ display: "block" }} className="socialIcon" />{" "}
+              Sign in with Google
+            </button>
+
+            <button className="socialBtn apple">
+              <FaApple style={{ display: "block" }} className="socialIcon" />{" "}
+              Sign in with Apple
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -489,17 +580,18 @@ const AuthModal = ({ onClose }) => {
       role="dialog"
       aria-modal="true"
     >
-      <div className="authModalContent" onClick={(e) => e.stopPropagation()}>
+      <div
+        className={`authModalContent ${isLogin ? "" : "show-register"}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button className="closeBtn" onClick={onClose}>
           <BiX />
         </button>
+
         <div className="modalImage">
-          <LazyLoadImage
-            src={images.organicFood}
-            alt="Organic produce"
-            effect="blur"
-          />
+          <img src={images.organicFood} alt="Organic produce" effect="blur" />
         </div>
+
         <AnimatePresence mode="wait">{renderContent()}</AnimatePresence>
       </div>
     </div>

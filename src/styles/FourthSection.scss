@@ -79,7 +79,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 70px;
+      gap: 35px;
       padding: 0 135px;
       user-select: none;
       -webkit-user-select: none;
@@ -102,8 +102,8 @@
         }
 
         .greenMachine {
-          width: 555px;
-          height: 555px;
+          width: 700px;
+          height: 700px;
           object-fit: contain;
           transition: all 0.35s ease-in-out;
         }
@@ -242,19 +242,23 @@
 
       &.prev {
         left: 7px;
+        transition: all 0.35s ease-in-out;
       }
 
       &.next {
         right: 7px;
+        transition: all 0.35s ease-in-out;
       }
 
       &:hover {
         background-color: #f4ad16;
+        transition: all 0.35s ease-in-out;
       }
     }
 
     &:hover .customArrow {
       opacity: 1;
+      transition: all 0.35s ease-in-out;
     }
   }
 }
@@ -263,6 +267,7 @@
   .fourthSection {
     .fourthSectionCarousel {
       padding-inline: 70px;
+      transition: all 0.35s ease-in-out;
     }
   }
 }
@@ -271,11 +276,14 @@
   .fourthSection {
     .fourthSectionCarousel {
       padding-inline: 40px;
+      transition: all 0.35s ease-in-out;
     }
+
     .fourthSectionContent {
       flex-direction: row;
       gap: 20px;
       padding-inline: 0;
+      transition: all 0.35s ease-in-out;
     }
   }
 }
@@ -284,29 +292,38 @@
   .fourthSection {
     .fourthSectionCarousel {
       padding-inline: 20px;
+      transition: all 0.35s ease-in-out;
     }
+
     .fourthSectionContent {
       flex-direction: column;
       gap: 20px;
       margin-top: 35px;
       padding-inline: 0;
+      transition: all 0.35s ease-in-out;
 
       .fourthSectionImage {
         .greenMachine {
           width: 450px;
           height: 450px;
+          transition: all 0.35s ease-in-out;
         }
       }
 
       .fourthSectionText {
         align-items: center;
+        transition: all 0.35s ease-in-out;
+
         .fourthSectionTextDescription {
           width: 500px;
+          transition: all 0.35s ease-in-out;
         }
       }
     }
+
     .customArrow {
       opacity: 1;
+      transition: all 0.35s ease-in-out;
     }
   }
 }
@@ -315,15 +332,20 @@
   .fourthSection {
     .fourthSectionContent {
       margin-top: 13.5px;
+      transition: all 0.35s ease-in-out;
+
       .fourthSectionImage {
         .greenMachine {
           width: 350px;
           height: 350px;
+          transition: all 0.35s ease-in-out;
         }
       }
+
       .fourthSectionText {
         .fourthSectionTextDescription {
           width: 350px;
+          transition: all 0.35s ease-in-out;
         }
       }
     }
@@ -335,27 +357,38 @@
     .fourthSectionContent {
       margin-top: 0px;
       gap: 0px;
+      transition: all 0.35s ease-in-out;
+
       .fourthSectionImage {
         .greenMachine {
           width: 200px;
           height: 200px;
+          transition: all 0.35s ease-in-out;
         }
       }
+
       .fourthSectionText {
         .fourthSectionTextPrice {
           margin-block: 0px 2px;
+          transition: all 0.35s ease-in-out;
         }
+
         .fourthSectionTextDescription {
           width: 350px;
           margin-block: 0px;
+          transition: all 0.35s ease-in-out;
         }
+
         .fourthSectionTextStatus {
           margin-block: 0px;
+          transition: all 0.35s ease-in-out;
         }
       }
     }
   }
 }
+
 .embla__slide {
   flex: 0 0 100%;
+  transition: all 0.35s ease-in-out;
 }

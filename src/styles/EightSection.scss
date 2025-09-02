@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 13.5px;
   padding: 70px 135px;
   transition: all 0.35s ease-in-out;
 
@@ -66,7 +67,7 @@
 
       .eightSectionCardImage {
         width: 100%;
-        height: 235px;
+        height: 350px;
         display: flex;
         justify-content: center;
         align-items: center;

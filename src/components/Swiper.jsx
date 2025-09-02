@@ -3,7 +3,7 @@ import "../styles/Swiper.scss";
 import { Reviews } from "../Data/Reviews";
 import StarRating from "./StarRating";
 
-const Swiper = ({ slideInterval = 7000 }) => {
+const Swiper = ({ slideInterval = 70000 }) => {
   const [current, setCurrent] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const reqId = useRef(null);
@@ -168,6 +168,7 @@ const Swiper = ({ slideInterval = 7000 }) => {
           >
             {"<"}
           </button>
+
           <button
             className="swiperButton"
             onClick={next}

@@ -44,7 +44,9 @@ const NewThirdSection = () => {
   return (
     <div className="thirdSection">
       <p className="thirdSectionTitle">~Our Products~</p>
+
       <h3 className="thirdSectionSubTitle">What's Hot Items</h3>
+
       <div className="thirdSectionMenu">
         <button
           className={`filterButton ${
@@ -54,6 +56,7 @@ const NewThirdSection = () => {
         >
           All Products
         </button>
+
         {menuItems.map((val, index) => (
           <button
             className={`filterButton ${activeFilter === val ? "active" : ""}`}
@@ -64,6 +67,7 @@ const NewThirdSection = () => {
           </button>
         ))}
       </div>
+
       <ProductCarousel
         item={filteredItems}
         className="productCarousel"

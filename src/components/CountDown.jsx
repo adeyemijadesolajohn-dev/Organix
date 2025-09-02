@@ -74,6 +74,7 @@ const CountDown = ({ endDate }) => {
         <p className="countdownTimer" id="days">
           {timeLeft.days}
         </p>
+
         <h5 className="countdownText">DAYS</h5>
       </div>
 
@@ -81,6 +82,7 @@ const CountDown = ({ endDate }) => {
         <p className="countdownTimer" id="hours">
           {timeLeft.hours}
         </p>
+
         <h5 className="countdownText">HRS</h5>
       </div>
 
@@ -88,6 +90,7 @@ const CountDown = ({ endDate }) => {
         <p className="countdownTimer" id="minutes">
           {timeLeft.minutes}
         </p>
+
         <h5 className="countdownText">MINS</h5>
       </div>
 
@@ -95,6 +98,7 @@ const CountDown = ({ endDate }) => {
         <p className="countdownTimer" id="seconds">
           {timeLeft.seconds}
         </p>
+
         <h5 className="countdownText">SECS</h5>
       </div>
     </div>

@@ -14,7 +14,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function ReviewSlider({
-  autoplayInterval = 7000,
+  autoplayInterval = 70000,
   options = { loop: true, align: "center", dragFree: false },
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
@@ -72,11 +72,15 @@ export default function ReviewSlider({
                   }}
                   style={{ objectFit: "cover" }}
                 />
+
                 <p className="review-card__text">"{review.review}"</p>
+
                 <div className="review-card__rating">
                   <StarRating rating={review.rating} />
                 </div>
+
                 <h4 className="review-card__name">{review.name}</h4>
+
                 <span className="review-card__location">{review.location}</span>
               </div>
             </div>
@@ -87,6 +91,7 @@ export default function ReviewSlider({
       <div className="embla__controls">
         <div className="embla__buttons">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
 

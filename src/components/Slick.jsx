@@ -206,6 +206,7 @@ const ProductCarousel = ({ item, initialSlide, onSlideChange }) => {
                   >
                     {val.left}
                   </span>
+
                   <button
                     type="button"
                     onClick={() => toggleLike(val.id)}
@@ -213,6 +214,7 @@ const ProductCarousel = ({ item, initialSlide, onSlideChange }) => {
                   >
                     {likedItems.includes(val.id) ? <FaHeart /> : <FaRegHeart />}
                   </button>
+
                   <div className="slickCardImage">
                     <LazyLoadImage
                       className="slickImage"
@@ -245,6 +247,7 @@ const ProductCarousel = ({ item, initialSlide, onSlideChange }) => {
                     >
                       {val.discount}
                     </p>
+
                     <p className="slickOriginal">{val.original}</p>
                   </div>
                 </div>
@@ -253,14 +256,19 @@ const ProductCarousel = ({ item, initialSlide, onSlideChange }) => {
           ))}
         </SlickSlider>
       </ul>
+
       {popup && (
         <div className="cartPopup">
           <div className="popupContent">
             <BiCheckCircle className="checkmark-icon" />
+
             <img src={popup.image} alt={popup.title} className="popupImage" />
+
             <div className="popupDetails">
               <p>Added to Cart</p>
+
               <h4>{popup.title}</h4>
+
               <p>{popup.discount}</p>
             </div>
           </div>
