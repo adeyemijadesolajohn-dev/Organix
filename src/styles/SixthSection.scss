@@ -107,7 +107,32 @@
       width: 88%;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 55px;
+      justify-content: center;
       transition: all 0.35s ease-in-out;
+
+      /* Ensure 5 columns for larger screens */
+      @media screen and (min-width: 1300px) {
+        grid-template-columns: repeat(5, minmax(200px, 1fr));
+      }
+
+      /* 4 columns: center the last 2 cards in the middle columns */
+      @media screen and (max-width: 1299px) and (min-width: 1025px) {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        & > :nth-child(9) {
+          grid-column: 2 / 3;
+        }
+        & > :nth-child(10) {
+          grid-column: 3 / 4;
+        }
+      }
+
+      /* 3 columns: center the last card in the middle column */
+      @media screen and (max-width: 1024px) and (min-width: 777px) {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        & > :nth-child(10) {
+          grid-column: 2 / 3;
+        }
+      }
     }
 
     .sixthSectionPagination {

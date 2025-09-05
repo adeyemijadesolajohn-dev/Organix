@@ -30,8 +30,8 @@ const CartModal = ({ onClose, initialStage = "cart" }) => {
       alert("Your cart is empty!");
       return;
     }
-    buyNow(cartItems); // Pass cart items to buyNow
-    onClose(); // Close CartModal
+    buyNow(cartItems);
+    onClose();
   };
 
   const renderStage = () => {

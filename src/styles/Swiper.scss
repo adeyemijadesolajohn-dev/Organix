@@ -6,9 +6,28 @@
   user-select: none;
   transition: all 0.35s ease-in-out;
 
+  .swiperBG {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    overflow: hidden;
+    z-index: 0;
+
+    .bgImg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: all 0.5s ease;
+    }
+  }
+
   .track {
     display: flex;
     height: 100%;
+    position: relative;
+    z-index: 1;
     transition: all 0.35s ease-in-out;
 
     .slide {
@@ -163,6 +182,49 @@
           transition: all 0.35s ease-in-out;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .swiper {
+    .swiperBG {
+      display: block;
+
+      &.leftBG {
+        left: 0;
+      }
+
+      &.rightBG {
+        right: 0;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 33%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+      transition: all 0.45s ease-in-out;
+    }
+
+    &::before {
+      left: 0;
+      background-image: url("../assets/green marsh.png");
+      background-position: left top;
+      transform: scale(1);
+    }
+
+    &::after {
+      right: 0;
+      background-image: url("../assets/diced greens.png");
+      background-position: right bottom;
+      transform: scale(1);
     }
   }
 }

@@ -28,6 +28,12 @@ const FifthSection = () => {
             alt="brush stroke"
           />
 
+          <img
+            className="leavesBlowing"
+            src={images.leavesBlowing}
+            alt="leaves"
+          />
+
           <LazyLoadImage
             className="pomidor"
             src={images.pomidor}
@@ -36,12 +42,6 @@ const FifthSection = () => {
             placeholderSrc={images.pomidorLowRes}
             width="100%"
             height="auto"
-          />
-
-          <img
-            className="leavesBlowing"
-            src={images.leavesBlowing}
-            alt="leaves"
           />
         </div>
       </div>

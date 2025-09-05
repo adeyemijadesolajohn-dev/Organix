@@ -113,7 +113,7 @@ export const BuyNowProvider = ({ children }) => {
     e.preventDefault();
     if (validateForm()) {
       setStage("success");
-      clearCart(); // Clear cart on successful checkout
+      clearCart();
     }
   };
 

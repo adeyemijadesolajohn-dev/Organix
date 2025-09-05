@@ -1,290 +1,84 @@
 .seventhSection {
-  width: 100vw;
+  width: 100%;
   height: 70vh;
-  border-block: 2px solid var(--primary-color);
-  background-color: #ffffff;
-  position: relative;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
+  background-color: #f7f5f4;
   overflow: hidden;
-  transition: all 0.35s ease-in-out;
 
   .seventhSectionContent {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    transition: all 0.35s ease-in-out;
 
     .seventhSectionBG {
-      width: 100%;
+      flex: 1;
       height: 100%;
-      position: relative;
-      transition: all 0.35s ease-in-out;
+      overflow: hidden;
 
       .greenImg {
-        position: absolute;
-        height: 250%;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        transition: all 0.35s ease-in-out;
-      }
-
-      .greenBGLeft {
-        left: -120px;
-        top: -70px;
-        z-index: 1;
-        transition: all 0.35s ease-in-out;
-      }
-
-      .greenBGRight {
-        right: 0;
-        bottom: -70px;
+        object-position: right center; // crop from left → right
         transition: all 0.35s ease-in-out;
       }
     }
 
     .seventhSectionReview {
-      padding-block: 22px;
-      width: 37%;
+      flex: 1;
+      max-width: 33%;
+      min-width: 420px;
       height: 100%;
-      background-color: #ffffff;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-between;
-      position: absolute;
-      transition: all 0.35s ease-in-out;
-      z-index: 1;
-    }
-
-    .seventhSectionReviewFooter {
-      display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      padding: 35px;
+      background: transparent;
       transition: all 0.35s ease-in-out;
-
-      .seventhSectionReviewFooterText {
-        color: #999;
-        font-size: 12px;
-        transition: all 0.35s ease-in-out;
-
-        .seventhSectionReviewFooterLink {
-          text-decoration: none;
-          color: var(--primary-color);
-          font-size: 12px;
-          transition: all 0.35s ease-in-out;
-
-          &:hover {
-            color: #f4ad16;
-            transform: scale(1.35);
-            transition: all 0.35s ease-in-out;
-          }
-        }
-      }
     }
   }
 }
 
-@media (max-width: 1444px) {
+@media (max-width: 1300px) {
   .seventhSection {
-    height: 80vh;
-    transition: all 0.35s ease-in-out;
+    height: 70vh;
 
     .seventhSectionContent {
-      .seventhSectionReview {
-        width: 40%;
-        transition: all 0.35s ease-in-out;
+      .rightBG {
+        align-self: flex-end;
       }
-    }
-  }
-}
-
-@media (max-width: 1400px) {
-  .seventhSection {
-    .seventhSectionContent {
       .seventhSectionBG {
         .greenImg {
-          height: 222%;
-          transition: all 0.35s ease-in-out;
-        }
-      }
-
-      .seventhSectionReview {
-        width: 41%;
-        transition: all 0.35s ease-in-out;
-      }
-    }
-  }
-}
-
-@media (max-width: 1234px) {
-  .seventhSection {
-    .seventhSectionContent {
-      .seventhSectionBG {
-        .greenImg {
-          height: 222%;
-          transition: all 0.35s ease-in-out;
+          object-fit: contain;
+          transform: scale(1);
         }
 
         .greenBGLeft {
-          left: -135px;
-          top: -55px;
-          transition: all 0.35s ease-in-out;
-        }
-      }
-
-      .seventhSectionReview {
-        width: 42%;
-        transition: all 0.35s ease-in-out;
-      }
-    }
-  }
-}
-
-@media (max-width: 1188px) {
-  .seventhSection {
-    height: 88vh;
-    transition: all 0.35s ease-in-out;
-
-    .seventhSectionContent {
-      .seventhSectionBG {
-        .greenImg {
-          height: 200%;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGLeft {
-          left: -200px;
-          top: 0px;
-          transition: all 0.35s ease-in-out;
-        }
-      }
-
-      .seventhSectionReview {
-        width: 44%;
-        transition: all 0.35s ease-in-out;
-      }
-    }
-  }
-}
-
-@media (max-width: 1090px) {
-  .seventhSection {
-    .seventhSectionContent {
-      .seventhSectionBG {
-        .greenImg {
-          height: 200%;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGLeft {
-          left: -250px;
-          transition: all 0.35s ease-in-out;
+          object-position: left top;
         }
 
         .greenBGRight {
-          right: -100px;
-          transition: all 0.35s ease-in-out;
+          object-position: right bottom;
         }
-      }
-
-      .seventhSectionReview {
-        width: 50%;
-        transition: all 0.35s ease-in-out;
       }
     }
   }
 }
 
-@media (max-width: 963px) {
+@media (max-width: 720px) {
   .seventhSection {
     .seventhSectionContent {
       .seventhSectionBG {
-        .greenImg {
-          height: 200%;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGLeft {
-          left: -300px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGRight {
-          right: -100px;
-          transition: all 0.35s ease-in-out;
-        }
+        display: none;
       }
 
       .seventhSectionReview {
-        width: 50%;
-        transition: all 0.35s ease-in-out;
-      }
-    }
-  }
-}
-
-@media (max-width: 900px) {
-  .seventhSection {
-    .seventhSectionContent {
-      .seventhSectionBG {
-        .greenImg {
-          height: 200%;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGLeft {
-          left: -350px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGRight {
-          right: -120px;
-          transition: all 0.35s ease-in-out;
-        }
-      }
-
-      .seventhSectionReview {
-        width: 55%;
-        transition: all 0.35s ease-in-out;
-      }
-    }
-  }
-}
-
-@media (max-width: 888px) {
-  .seventhSection {
-    border-block: none;
-    transition: all 0.35s ease-in-out;
-
-    .seventhSectionContent {
-      .seventhSectionBG {
-        .greenImg {
-          height: 200%;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGLeft {
-          left: -500px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .greenBGRight {
-          right: -135px;
-          transition: all 0.35s ease-in-out;
-        }
-      }
-
-      .seventhSectionReview {
+        max-width: 100%;
         width: 100%;
-        background-color: whitesmoke;
-        transition: all 0.35s ease-in-out;
+        background: #f7f5f4;
       }
     }
   }

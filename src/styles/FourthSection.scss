@@ -1,8 +1,9 @@
 .fourthSection {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   padding: 12px;
   background-color: white;
   transition: all 0.35s ease-in-out;
@@ -55,7 +56,6 @@
     width: 70%;
     height: 90vh;
     position: relative;
-    overflow: hidden;
     padding-inline: 0;
     transition: all 0.35s ease-in-out;
 
@@ -74,13 +74,13 @@
     }
 
     .fourthSectionContent {
-      width: 100vw;
+      width: 100%;
       max-width: 100vw;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 35px;
-      padding: 0 135px;
+      padding: 0 888px;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -241,12 +241,12 @@
       z-index: 10;
 
       &.prev {
-        left: 7px;
+        left: -20%;
         transition: all 0.35s ease-in-out;
       }
 
       &.next {
-        right: 7px;
+        right: -20%;
         transition: all 0.35s ease-in-out;
       }
 
@@ -263,11 +263,52 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1850px) {
   .fourthSection {
     .fourthSectionCarousel {
-      padding-inline: 70px;
-      transition: all 0.35s ease-in-out;
+      .embla__container {
+        .fourthSectionContent {
+          .fourthSectionImage {
+            .greenMachine {
+              width: 500px;
+              height: 500px;
+              object-fit: contain;
+              transition: all 0.35s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .fourthSection {
+    .fourthSectionCarousel {
+      .embla__container {
+        .fourthSectionContent {
+          gap: 12px;
+          padding: 0 700px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .fourthSection {
+    height: 100vh;
+    transition: all 0.35s ease-in-out;
+
+    .fourthSectionCarousel {
+      .embla__container {
+        .fourthSectionContent {
+          gap: 7px;
+          padding: 0 500px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
     }
   }
 }
@@ -275,120 +316,120 @@
 @media screen and (max-width: 1000px) {
   .fourthSection {
     .fourthSectionCarousel {
-      padding-inline: 40px;
-      transition: all 0.35s ease-in-out;
-    }
-
-    .fourthSectionContent {
-      flex-direction: row;
-      gap: 20px;
-      padding-inline: 0;
-      transition: all 0.35s ease-in-out;
+      .embla__container {
+        .fourthSectionContent {
+          gap: 2px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
     }
   }
 }
 
 @media screen and (max-width: 800px) {
   .fourthSection {
+    height: 150vh;
+    transition: all 0.35s ease-in-out;
+
     .fourthSectionCarousel {
       padding-inline: 20px;
-      transition: all 0.35s ease-in-out;
-    }
-
-    .fourthSectionContent {
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 35px;
-      padding-inline: 0;
+      height: 120vh;
       transition: all 0.35s ease-in-out;
 
-      .fourthSectionImage {
-        .greenMachine {
-          width: 450px;
-          height: 450px;
+      .embla__container {
+        .fourthSectionContent {
+          margin-top: 0;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0px;
+          padding: 0 350px;
           transition: all 0.35s ease-in-out;
+
+          .fourthSectionImage {
+            .greenMachine {
+              width: 350px;
+              height: 350px;
+              transition: all 0.35s ease-in-out;
+            }
+          }
+
+          .fourthSectionText {
+            align-items: center;
+            transition: all 0.35s ease-in-out;
+
+            .fourthSectionTextDescription {
+              width: 500px;
+              transition: all 0.35s ease-in-out;
+            }
+          }
         }
       }
 
-      .fourthSectionText {
-        align-items: center;
+      .customArrow {
+        opacity: 1;
         transition: all 0.35s ease-in-out;
-
-        .fourthSectionTextDescription {
-          width: 500px;
-          transition: all 0.35s ease-in-out;
-        }
       }
-    }
-
-    .customArrow {
-      opacity: 1;
-      transition: all 0.35s ease-in-out;
     }
   }
 }
 
 @media screen and (max-width: 600px) {
   .fourthSection {
-    .fourthSectionContent {
-      margin-top: 13.5px;
+    .fourthSectionHeader {
+      flex-direction: column;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .fourthSectionCarousel {
+      height: 120vh;
       transition: all 0.35s ease-in-out;
 
-      .fourthSectionImage {
-        .greenMachine {
-          width: 350px;
-          height: 350px;
-          transition: all 0.35s ease-in-out;
-        }
-      }
+      .embla__container {
+        .fourthSectionContent {
+          .fourthSectionText {
+            .fourthSectionTextPrice {
+              margin-block: 0px 2px;
+              transition: all 0.35s ease-in-out;
+            }
 
-      .fourthSectionText {
-        .fourthSectionTextDescription {
-          width: 350px;
-          transition: all 0.35s ease-in-out;
+            .fourthSectionTextDescription {
+              width: 350px;
+              margin-block: 0px;
+              transition: all 0.35s ease-in-out;
+            }
+
+            .fourthSectionTextStatus {
+              margin-block: 0px;
+              transition: all 0.35s ease-in-out;
+            }
+          }
         }
       }
     }
   }
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 500px) {
   .fourthSection {
-    .fourthSectionContent {
-      margin-top: 0px;
-      gap: 0px;
+    .fourthSectionCarousel {
+      height: 120vh;
       transition: all 0.35s ease-in-out;
 
-      .fourthSectionImage {
-        .greenMachine {
-          width: 200px;
-          height: 200px;
+      .embla__container {
+        .fourthSectionContent {
+          padding: 0 200px;
           transition: all 0.35s ease-in-out;
-        }
-      }
 
-      .fourthSectionText {
-        .fourthSectionTextPrice {
-          margin-block: 0px 2px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .fourthSectionTextDescription {
-          width: 350px;
-          margin-block: 0px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .fourthSectionTextStatus {
-          margin-block: 0px;
-          transition: all 0.35s ease-in-out;
+          .fourthSectionImage {
+            .greenMachine {
+              width: 300px;
+              height: 300px;
+              transition: all 0.35s ease-in-out;
+            }
+          }
         }
       }
     }
   }
-}
-
-.embla__slide {
-  flex: 0 0 100%;
-  transition: all 0.35s ease-in-out;
 }

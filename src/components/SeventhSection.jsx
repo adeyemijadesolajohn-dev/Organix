@@ -1,23 +1,26 @@
 import React from "react";
 import "../styles/SeventhSection.scss";
+import { Reviews } from "../Data/Reviews";
 import { images } from "../Data/Images";
 import Swiper from "./EmblaReviews";
-import { Reviews } from "../Data/Reviews";
 
 const OPTIONS = { loop: true };
 const SLIDES = { slides: Reviews };
+
 const SeventhSection = () => {
   return (
     <div className="seventhSection">
       <div className="seventhSectionContent">
-        <div className="seventhSectionBG">
+        {/* Left Background */}
+        <div className="seventhSectionBG leftBG">
           <img
             className="greenImg greenBGLeft"
-            src={images.greenBg}
-            alt="background"
+            src={images.greenMarsh}
+            alt="background left"
           />
         </div>
 
+        {/* Review Section */}
         <div className="seventhSectionReview">
           <div className="seventhSectionReviewHeader">
             <h2 className="seventhSectionReviewTitle">Client Says</h2>
@@ -36,11 +39,12 @@ const SeventhSection = () => {
           </div>
         </div>
 
-        <div className="seventhSectionBG">
+        {/* Right Background */}
+        <div className="seventhSectionBG rightBG">
           <img
             className="greenImg greenBGRight"
-            src={images.greenBg}
-            alt="background"
+            src={images.dicedGreens}
+            alt="background right"
           />
         </div>
       </div>

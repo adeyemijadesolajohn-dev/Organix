@@ -4,6 +4,8 @@
   align-items: center;
   padding: 12px;
   background-color: white;
+  width: 100%;
+  overflow-x: hidden;
   transition: all 0.35s ease-in-out;
 
   .secondSectionContent {
@@ -56,7 +58,7 @@
   }
 }
 
-@media (max-width: 1177px) {
+@media (max-width: 1300px) {
   .secondSection {
     transition: all 0.35s ease-in-out;
 
@@ -67,7 +69,7 @@
   }
 }
 
-@media (max-width: 1111px) {
+@media (max-width: 1234px) {
   .secondSection {
     .secondSectionContent {
       gap: 12px;
@@ -82,7 +84,7 @@
   }
 }
 
-@media (max-width: 955px) {
+@media (max-width: 963px) {
   .secondSection {
     transition: all 0.35s ease-in-out;
 
@@ -105,11 +107,13 @@
 
     .secondSectionContent {
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       gap: 20px;
       transition: all 0.35s ease-in-out;
 
       .secondSectionCard {
-        width: 350px;
+        width: 70%;
         padding: 13.5px;
         transition: all 0.35s ease-in-out;
       }

@@ -148,3 +148,34 @@
     }
   }
 }
+
+@media (max-width: 720px) {
+  .embla {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 33%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+      transition: all 0.45s ease-in-out;
+    }
+
+    &::before {
+      left: 0;
+      background-image: url("../assets/green marsh.png");
+      background-position: left top;
+      transform: scale(1);
+    }
+
+    &::after {
+      right: 0;
+      background-image: url("../assets/diced greens.png");
+      background-position: right bottom;
+      transform: scale(1);
+    }
+  }
+}

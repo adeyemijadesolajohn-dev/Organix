@@ -15,6 +15,8 @@ const startDate = new Date("2025-10-26T00:00:00Z");
 
 const lagranaMilk = {
   id: 0,
+  left: "New",
+  category: "Fresh Veggies",
   title: "Lagrana Milk",
   image: images.greenMachine,
   lowResImage: images.greenMachineLowRes,

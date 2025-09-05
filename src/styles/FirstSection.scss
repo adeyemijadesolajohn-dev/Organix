@@ -49,6 +49,7 @@
 
     .vegetables {
       height: 1200px;
+      width: auto;
       margin-bottom: -35px;
       transition: all 0.35s ease-in-out;
     }
@@ -115,7 +116,14 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1501px) {
+  .firstSection {
+    height: 100vh;
+    transition: all 0.35s ease-in-out;
+  }
+}
+
+@media (max-width: 1500px) {
   .firstSection {
     height: 88vh;
     width: 100%;
@@ -138,7 +146,7 @@
       transition: all 0.35s ease-in-out;
 
       .vegetables {
-        height: 800px;
+        height: 1000px;
         margin-bottom: 120px;
         margin-left: -100px;
         transition: all 0.35s ease-in-out;
@@ -173,53 +181,38 @@
   }
 }
 
-@media (max-width: 945px) {
+@media (max-width: 1200px) {
   .firstSection {
-    width: 100%;
-    padding: 0;
+    height: 80vh;
     transition: all 0.35s ease-in-out;
 
-    .stamp {
-      position: absolute;
-      bottom: 350px;
-      left: -70px;
-      width: 400px;
-      transition: all 0.35s ease-in-out;
-    }
-
     .pictureFlex {
-      width: 100%;
-      left: 20px;
-      transition: all 0.35s ease-in-out;
-
       .vegetables {
-        width: 100%;
-        object-fit: contain;
+        height: 800px;
+        margin-bottom: 135px;
+        margin-left: -80px;
         transition: all 0.35s ease-in-out;
       }
 
       .backgroundText {
-        width: 555px;
-        padding-left: 55px;
+        margin-left: -350px;
+        margin-top: -200px;
         transition: all 0.35s ease-in-out;
 
         .welcome {
-          margin-bottom: 7px;
+          margin-bottom: 13.5px;
           transition: all 0.35s ease-in-out;
         }
 
         .title {
-          margin-bottom: 7px;
-          font-size: 55px;
-          width: 100%;
-          font-size: 40px;
-          font-weight: 700;
-          color: var(--primary-color);
+          font-size: 35px;
+          margin-bottom: 13.5px;
           transition: all 0.35s ease-in-out;
         }
 
         .description {
-          margin-bottom: 7px;
+          font-size: 12px;
+          margin-bottom: 13.5px;
           transition: all 0.35s ease-in-out;
         }
       }
@@ -227,8 +220,9 @@
   }
 }
 
-@media (max-width: 888px) {
+@media (max-width: 900px) {
   .firstSection {
+    height: 86vh;
     transition: all 0.35s ease-in-out;
 
     .whiteTable {
@@ -242,14 +236,15 @@
 
     .pictureFlex {
       flex-direction: column;
-      bottom: -60px;
+      bottom: -70px;
       left: 70px;
-      gap: 120px;
+      gap: 180px;
       transition: all 0.35s ease-in-out;
 
       .vegetables {
         height: 700px;
         margin-bottom: -0px;
+        margin-left: -170px;
         transition: all 0.35s ease-in-out;
       }
 
@@ -260,13 +255,14 @@
         flex-direction: column;
         justify-content: center;
         margin-left: -200px;
-        margin-bottom: 88px;
-        padding-bottom: -120px;
+        margin-bottom: 70px;
+        padding-bottom: -135px;
         transition: all 0.35s ease-in-out;
 
         .welcome {
-          font-size: 13.5px;
-          color: yellowgreen;
+          font-size: 20px;
+          font-weight: 700;
+          color: #f4ad16;
           margin-bottom: 5.5px;
           transition: all 0.35s ease-in-out;
         }
@@ -285,7 +281,12 @@
           font-size: 13.5px;
           color: grey;
           width: 380px;
-          margin-bottom: 5.5px;
+          margin-bottom: 13.5px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .shopNow {
+          margin-bottom: 13.5px;
           transition: all 0.35s ease-in-out;
         }
       }
@@ -301,88 +302,98 @@
   }
 }
 
-@media (max-width: 777px) {
+@media screen and (max-width: 777px) {
   .firstSection {
-    transition: all 0.3s ease-in-out;
-
-    .whiteTable {
-      width: 100%;
-      height: 280px;
-      background-color: #ffffff;
-      position: absolute;
-      bottom: 0;
-      transition: all 0.35s ease-in-out;
-    }
-
-    .stamp {
-      position: absolute;
-      bottom: 450px;
-      left: -35px;
-      width: 300px;
-      transition: all 0.35s ease-in-out;
-    }
+    height: 77vh;
+    transition: all 0.35s ease-in-out;
 
     .pictureFlex {
-      flex-direction: column;
-      bottom: -60px;
-      left: 70px;
-      gap: 120px;
-      transition: all 0.35s ease-in-out;
-
       .vegetables {
-        height: 888px;
-        margin-bottom: -120px;
+        height: 555px;
         transition: all 0.35s ease-in-out;
-      }
-
-      .backgroundText {
-        text-align: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-left: -200px;
-        margin-bottom: 120px;
-        transition: all 0.35s ease-in-out;
-
-        .welcome {
-          font-size: 13.5px;
-          color: yellowgreen;
-          margin-bottom: 5.5px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .title {
-          font-size: 55px;
-          font-weight: 700;
-          width: 500px;
-          color: var(--primary-color);
-          margin-bottom: 5.5px;
-          line-height: 55px;
-          transition: all 0.35s ease-in-out;
-        }
-
-        .description {
-          font-size: 13.5px;
-          color: grey;
-          width: 380px;
-          margin-bottom: 5.5px;
-          transition: all 0.35s ease-in-out;
-        }
       }
     }
   }
 }
 
-@media (max-width: 666px) {
+@media screen and (max-width: 600px) {
   .firstSection {
-    transition: all 0.3s ease-in-out;
+    height: 55vh;
+    transition: all 0.35s ease-in-out;
+
+    .pictureFlex {
+      .vegetables {
+        height: 350px;
+        transition: all 0.35s ease-in-out;
+      }
+
+      .backgroundText {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.35s ease-in-out;
+
+        .welcome {
+          font-size: 13.5px;
+          margin-top: 13.5px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .description {
+          width: 70%;
+          font-size: 12px;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .title {
+          width: 70%;
+          font-size: 35px;
+          line-height: 35px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
 
     .stamp {
       position: absolute;
-      bottom: 450px;
-      left: -35px;
-      width: 250px;
+      bottom: 300px;
+      left: 35px;
+      width: 200px;
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .firstSection {
+    height: 50vh;
+    transition: all 0.35s ease-in-out;
+
+    .pictureFlex {
+      .backgroundText {
+        margin-left: -135px;
+        transition: all 0.35s ease-in-out;
+
+        .description {
+          width: 55%;
+          transition: all 0.35s ease-in-out;
+        }
+
+        .title {
+          font-size: 20px;
+          line-height: 20px;
+          transition: all 0.35s ease-in-out;
+        }
+      }
+    }
+
+    .stamp {
+      position: absolute;
+      bottom: 250px;
+      left: 200px;
+      width: 200px;
       transition: all 0.35s ease-in-out;
     }
   }

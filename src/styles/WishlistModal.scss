@@ -2,7 +2,7 @@ $text-color: #333;
 $background-color: #f7f7f7;
 $border-color: #ddd;
 $modal-bg-color: #fff;
-$shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+$shadow: 0 3.5px 12px rgba(0, 0, 0, 0.7);
 
 @mixin flex-center {
   display: flex;
@@ -174,7 +174,7 @@ $shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   &::-webkit-scrollbar-track {
-    background: lighten($background-color, 12%);
+    background: var(--secondary-color);
     transition: all 0.35s ease-in-out;
   }
 }

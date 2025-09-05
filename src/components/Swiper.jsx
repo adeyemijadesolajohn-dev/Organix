@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/Swiper.scss";
 import { Reviews } from "../Data/Reviews";
+import { images } from "../Data/Images";
 import StarRating from "./StarRating";
 
-const Swiper = ({ slideInterval = 70000 }) => {
+const Swiper = ({ slideInterval = 7000 }) => {
   const [current, setCurrent] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const reqId = useRef(null);
@@ -106,6 +107,14 @@ const Swiper = ({ slideInterval = 70000 }) => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* Backgrounds for ≤720px */}
+      <div className="swiperBG leftBG">
+        <img src={images.greenMarsh} alt="left bg" className="bgImg" />
+      </div>
+      <div className="swiperBG rightBG">
+        <img src={images.dicedGreens} alt="right bg" className="bgImg" />
+      </div>
+
       <div
         className="track"
         ref={trackRef}
